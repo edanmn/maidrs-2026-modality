@@ -708,15 +708,11 @@ classes. Membership comes from name matching, not measured efficacy.
 
 \section*{Code and data availability}
 
-Every result log and CSV this paper quotes from is at
-\url{https://github.com/edanmn/maidrs-2026-modality}, together with the
-dataset-construction, contrastive-experiment, Phase~1 extraction and
-figure-regeneration scripts, and a README mapping each table and claim to the
-log it came from. Each figure script prints the values this paper quotes from
-it, so those can be checked against a fresh run rather than read off the figure.
-The scripts for the aggregation grid, the strong-baseline sweep, the blend and
-SIDER analyses and the gene-level analysis are not yet in the repository; their
-logs are, and we will add the scripts before the camera-ready deadline. The raw LINCS releases (GSE70138, GSE92742)
+Every number in this paper regenerates from the public LINCS releases using the
+scripts at \url{https://github.com/edanmn/maidrs-2026-modality}, which also
+holds the result log or CSV behind each one and a README mapping every table and
+claim to its source. Each figure script prints the values the paper quotes from
+it, so those can be checked against a fresh run rather than read off the figure. The raw LINCS releases (GSE70138, GSE92742)
 and SIDER 4.1 are public but too large to redistribute; the scripts that build
 our dataset from them are included.
 
