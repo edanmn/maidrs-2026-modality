@@ -39,33 +39,31 @@ dan.mccreary@gmail.com}}
 
 \begin{abstract}
 A near-chance baseline is usually read as evidence that a modality carries no
-signal. For LINCS L1000 perturbational transcriptomics it is more often evidence
-about the pipeline. Measured the way most pipelines measure it, by averaging
-Level-5 signatures across all doses, cell lines and timepoints and fitting a
+signal. For LINCS L1000 transcriptomics it is more often evidence about the
+pipeline. Averaged across all doses, cell lines and timepoints and fed to a
 random forest, drug-level expression recovers pharmacological class at AUROC
 $0.548$ on Phase~2 (95\% CI $[0.520, 0.577]$), close enough to chance to read as
-absence. That averaging cancels $64\%$ of signature magnitude, and a tree
-ensemble is poorly matched to dense high-dimensional features. With both
-corrected it reaches $0.752$ $[0.728, 0.776]$, and the corrected features recover known
-pharmacology unsupervised: HMGCR, the direct target of every statin, sits in the
-top ten of $978$ landmark genes at $q \le 0.018$. An independent
+absence. That averaging cancels $64\%$ of signature magnitude, and tree
+ensembles suit dense high-dimensional features poorly. With both corrected,
+expression reaches $0.752$ $[0.728, 0.776]$, and the corrected features recover
+known pharmacology unsupervised, placing HMGCR, the direct target of every
+statin, among the top ten of $978$ landmark genes ($q \le 0.018$). An independent
 release (LINCS Phase~1, 46{,}726 signatures) separates the general half of this
 diagnosis from the dataset-specific half. Model-class mismatch costs roughly
-$0.14$ AUROC in seven of eight release-by-representation combinations and is a
-standing hazard. The aggregation effect reverses sign, with naive averaging the
-\emph{best} representation on Phase~1 and the worst on Phase~2, so aggregation
-has to be settled per dataset. All of this came out of a negative control that
-failed decisively. A CLIP-style structure-expression aligner lost to a plain
-random forest on ECFP4 fingerprints in every class ($p \le 0.027$), as did four
-stronger structural baselines and, at $0.751$ against $0.917$, the published
-alignment objective this recipe comes from ($p \le 0.0039$). Correctly
-specified, the expression arm is still redundant with structure for these tasks
-($+0.001$, $p{=}0.15$). We close with a self-audit of five defects found in our
-own pipeline, each of which produced a publishable-looking but incorrect number.
+$0.14$ AUROC in seven of eight release-by-representation combinations, while the
+aggregation effect reverses sign between releases and has to be settled per
+dataset. All of this came out of a negative control that failed decisively. A
+CLIP-style structure-expression aligner lost to a random forest on ECFP4
+fingerprints in every class ($p \le 0.027$), as did four stronger structural
+baselines and the published alignment objective, at $0.751$ against $0.917$
+($p \le 0.0039$). Correctly specified, expression is still redundant with
+structure for these tasks ($+0.001$, $p{=}0.15$). A self-audit reports five
+defects in our own pipeline, each of which produced a publishable-looking but
+incorrect number.
 \end{abstract}
 
 \begin{IEEEkeywords}
-drug repurposing, multi-modal learning, contrastive learning, LINCS L1000, transcriptomics, molecular fingerprints, negative results, reproducibility
+drug repurposing, multi-modal learning, LINCS L1000, transcriptomics, reproducibility
 \end{IEEEkeywords}
 
 
