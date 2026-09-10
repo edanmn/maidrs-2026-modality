@@ -109,7 +109,7 @@ design. A signature is *strongly active* at 50 or more landmark genes with
 ## Citation
 
 ```
-R. Kondadadi, "Model-Class Mismatch and Aggregation Artifacts in
+R. Kondadadi and D. McCreary, "Model-Class Mismatch and Aggregation Artifacts in
 Structure-Transcriptome Drug Repurposing," in Proc. IEEE BIBM Workshop on Multi-Modal Artificial
 Intelligence in Drug Discovery, Repurposing, and Safety (MAI-DRS), 2026.
 ```
