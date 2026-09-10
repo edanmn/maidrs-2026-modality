@@ -1,0 +1,90 @@
+Loading dataset...
+
+--- class_AED: n_pos=16, seen_pos(pretrain-visible)=10, test_pos(held-out, never labeled during pretraining)=6 ---
+  [pretrain:positive:class_AED:0] 103989 sigs, 25 epochs in 92.6s, final loss=0.6607 (init=3.6640)
+  [pretrain:positive:class_AED:1] 103989 sigs, 25 epochs in 91.8s, final loss=0.6635 (init=3.6789)
+  [pretrain:positive:class_AED:2] 103989 sigs, 25 epochs in 96.3s, final loss=0.6638 (init=3.6753)
+  [pretrain:exclude:class_AED:0] 103989 sigs, 25 epochs in 95.5s, final loss=0.6538 (init=3.6585)
+  [pretrain:exclude:class_AED:1] 103989 sigs, 25 epochs in 97.1s, final loss=0.6590 (init=3.6735)
+  [pretrain:exclude:class_AED:2] 103989 sigs, 25 epochs in 91.7s, final loss=0.6543 (init=3.6688)
+
+--- class_Statin: n_pos=5, seen_pos(pretrain-visible)=3, test_pos(held-out, never labeled during pretraining)=2 ---
+  [pretrain:positive:class_Statin:0] 103989 sigs, 25 epochs in 95.8s, final loss=0.6544 (init=3.6589)
+  [pretrain:positive:class_Statin:1] 103989 sigs, 25 epochs in 95.4s, final loss=0.6589 (init=3.6740)
+  [pretrain:positive:class_Statin:2] 103989 sigs, 25 epochs in 95.3s, final loss=0.6549 (init=3.6694)
+  [pretrain:exclude:class_Statin:0] 103989 sigs, 25 epochs in 92.7s, final loss=0.6537 (init=3.6585)
+  [pretrain:exclude:class_Statin:1] 103989 sigs, 25 epochs in 100.1s, final loss=0.6591 (init=3.6735)
+  [pretrain:exclude:class_Statin:2] 103989 sigs, 25 epochs in 95.3s, final loss=0.6544 (init=3.6688)
+
+--- class_SSRI: n_pos=6, seen_pos(pretrain-visible)=4, test_pos(held-out, never labeled during pretraining)=2 ---
+  [pretrain:positive:class_SSRI:0] 103989 sigs, 25 epochs in 104.9s, final loss=0.6569 (init=3.6594)
+  [pretrain:positive:class_SSRI:1] 103989 sigs, 25 epochs in 100.4s, final loss=0.6596 (init=3.6744)
+  [pretrain:positive:class_SSRI:2] 103989 sigs, 25 epochs in 110.5s, final loss=0.6559 (init=3.6696)
+  [pretrain:exclude:class_SSRI:0] 103989 sigs, 25 epochs in 116.8s, final loss=0.6537 (init=3.6585)
+  [pretrain:exclude:class_SSRI:1] 103989 sigs, 25 epochs in 99.1s, final loss=0.6591 (init=3.6735)
+  [pretrain:exclude:class_SSRI:2] 103989 sigs, 25 epochs in 99.5s, final loss=0.6544 (init=3.6688)
+
+--- class_NSAID: n_pos=8, seen_pos(pretrain-visible)=5, test_pos(held-out, never labeled during pretraining)=3 ---
+  [pretrain:positive:class_NSAID:0] 103989 sigs, 25 epochs in 93.1s, final loss=0.6561 (init=3.6595)
+  [pretrain:positive:class_NSAID:1] 103989 sigs, 25 epochs in 101.4s, final loss=0.6606 (init=3.6740)
+  [pretrain:positive:class_NSAID:2] 103989 sigs, 25 epochs in 97.4s, final loss=0.6557 (init=3.6697)
+  [pretrain:exclude:class_NSAID:0] 103989 sigs, 25 epochs in 101.6s, final loss=0.6537 (init=3.6585)
+  [pretrain:exclude:class_NSAID:1] 103989 sigs, 25 epochs in 103.8s, final loss=0.6592 (init=3.6735)
+  [pretrain:exclude:class_NSAID:2] 103989 sigs, 25 epochs in 102.4s, final loss=0.6544 (init=3.6688)
+
+--- class_BetaBlocker: n_pos=6, seen_pos(pretrain-visible)=4, test_pos(held-out, never labeled during pretraining)=2 ---
+  [pretrain:positive:class_BetaBlocker:0] 103989 sigs, 25 epochs in 100.8s, final loss=0.6555 (init=3.6595)
+  [pretrain:positive:class_BetaBlocker:1] 103989 sigs, 25 epochs in 101.7s, final loss=0.6591 (init=3.6740)
+  [pretrain:positive:class_BetaBlocker:2] 103989 sigs, 25 epochs in 100.4s, final loss=0.6543 (init=3.6695)
+  [pretrain:exclude:class_BetaBlocker:0] 103989 sigs, 25 epochs in 103.2s, final loss=0.6537 (init=3.6585)
+  [pretrain:exclude:class_BetaBlocker:1] 103989 sigs, 25 epochs in 103.2s, final loss=0.6591 (init=3.6735)
+  [pretrain:exclude:class_BetaBlocker:2] 103989 sigs, 25 epochs in 101.6s, final loss=0.6544 (init=3.6688)
+
+--- class_Antipsychotic: n_pos=7, seen_pos(pretrain-visible)=5, test_pos(held-out, never labeled during pretraining)=2 ---
+  [pretrain:positive:class_Antipsychotic:0] 103989 sigs, 25 epochs in 90.8s, final loss=0.6545 (init=3.6602)
+  [pretrain:positive:class_Antipsychotic:1] 103989 sigs, 25 epochs in 99.8s, final loss=0.6582 (init=3.6745)
+  [pretrain:positive:class_Antipsychotic:2] 103989 sigs, 25 epochs in 92.4s, final loss=0.6567 (init=3.6707)
+  [pretrain:exclude:class_Antipsychotic:0] 103989 sigs, 25 epochs in 97.6s, final loss=0.6537 (init=3.6585)
+  [pretrain:exclude:class_Antipsychotic:1] 103989 sigs, 25 epochs in 105.1s, final loss=0.6591 (init=3.6735)
+  [pretrain:exclude:class_Antipsychotic:2] 103989 sigs, 25 epochs in 110.0s, final loss=0.6545 (init=3.6688)
+
+Saved 108 rows to /mnt/c/Users/rishik/epilepsy_repurpose/ICLR2027_repurpose/results/supervised_positive_results.csv
+
+=== SUMMARY (mean AUROC, single fixed seed=42 split, 3 pretrain seeds) ===
+                  class      mode        view      mean       std  count
+0             class_AED   exclude      concat  0.616667  0.083806      3
+1             class_AED   exclude  expression  0.576667  0.099238      3
+2             class_AED   exclude   structure  0.605185  0.106628      3
+3             class_AED  positive      concat  0.529259  0.048130      3
+4             class_AED  positive  expression  0.571852  0.052942      3
+5             class_AED  positive   structure  0.506296  0.041727      3
+6   class_Antipsychotic   exclude      concat  0.556667  0.016667      3
+7   class_Antipsychotic   exclude  expression  0.460000  0.058595      3
+8   class_Antipsychotic   exclude   structure  0.561111  0.015753      3
+9   class_Antipsychotic  positive      concat  0.450000  0.047022      3
+10  class_Antipsychotic  positive  expression  0.406667  0.026034      3
+11  class_Antipsychotic  positive   structure  0.477778  0.084744      3
+12    class_BetaBlocker   exclude      concat  0.771111  0.033389      3
+13    class_BetaBlocker   exclude  expression  0.636667  0.046667      3
+14    class_BetaBlocker   exclude   structure  0.832222  0.043504      3
+15    class_BetaBlocker  positive      concat  0.773333  0.055076      3
+16    class_BetaBlocker  positive  expression  0.632222  0.036717      3
+17    class_BetaBlocker  positive   structure  0.845556  0.048113      3
+18          class_NSAID   exclude      concat  0.560000  0.069282      3
+19          class_NSAID   exclude  expression  0.513333  0.051973      3
+20          class_NSAID   exclude   structure  0.579259  0.081235      3
+21          class_NSAID  positive      concat  0.534815  0.051512      3
+22          class_NSAID  positive  expression  0.500741  0.036130      3
+23          class_NSAID  positive   structure  0.574074  0.058472      3
+24           class_SSRI   exclude      concat  0.828889  0.013472      3
+25           class_SSRI   exclude  expression  0.700000  0.057831      3
+26           class_SSRI   exclude   structure  0.868889  0.015396      3
+27           class_SSRI  positive      concat  0.871111  0.015753      3
+28           class_SSRI  positive  expression  0.758889  0.030972      3
+29           class_SSRI  positive   structure  0.897778  0.015396      3
+30         class_Statin   exclude      concat  0.995556  0.001925      3
+31         class_Statin   exclude  expression  0.986667  0.006667      3
+32         class_Statin   exclude   structure  0.992222  0.001925      3
+33         class_Statin  positive      concat  0.995556  0.001925      3
+34         class_Statin  positive  expression  0.991111  0.008389      3
+35         class_Statin  positive   structure  0.995556  0.001925      3

@@ -1,0 +1,7 @@
+Phase1 signatures for our compounds: 46726, compounds: 1001
+  slicing 46726 sigs x 978 landmark genes
+    0/46726
+    20000/46726
+    40000/46726
+saved p1_expr (46726, 978)
+VALIDATION HMGCR: statins +0.927 vs others +0.182

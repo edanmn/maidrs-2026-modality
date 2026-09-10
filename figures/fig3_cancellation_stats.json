@@ -1,0 +1,12 @@
+{
+  "n_signatures": 103989,
+  "n_compounds": 1725,
+  "median_individual_norm": 31.33,
+  "median_drug_mean_norm": 11.32,
+  "cancelled_fraction_pct": 63.9,
+  "pct_compounds_with_strong_signature": 99.9,
+  "pct_signatures_weak": 7.8,
+  "pct_signatures_below_strong_cut": 52.8,
+  "strong_signature_definition": ">= 50 landmark genes at |z| > 2.0",
+  "weak_signature_definition": "< 25 landmark genes at |z| > 2.0"
+}

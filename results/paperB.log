@@ -1,0 +1,81 @@
+drugs=534  usable side effects (>=25 pos, >=25 neg)=586
+  [25/586]
+  [50/586]
+  [75/586]
+  [100/586]
+  [125/586]
+  [150/586]
+  [175/586]
+  [200/586]
+  [225/586]
+  [250/586]
+  [275/586]
+  [300/586]
+  [325/586]
+  [350/586]
+  [375/586]
+  [400/586]
+  [425/586]
+  [450/586]
+  [475/586]
+  [500/586]
+  [525/586]
+  [550/586]
+  [575/586]
+
+=== PAPER B: 586 side effects ===
+structure mean AUROC : 0.6001  (median 0.5979)
+expression mean AUROC: 0.5290
+blend mean AUROC     : 0.5714
+
+side effects where structure >0.65 (well predicted): 132/586
+side effects where structure <0.55 (near chance)   : 152/586
+side effects where EXPRESSION beats structure      : 93/586
+  ...and by >0.05                                  : 38/586
+side effects where blend beats structure by >0.02  : 76/586
+
+--- most structure-predictable ---
+                            se  n_pos   struct     expr    blend
+            Serotonin syndrome     26 0.899001 0.723955 0.905890
+            Tardive dyskinesia     27 0.867704 0.789612 0.877931
+                     Hypomania     26 0.854255 0.639461 0.834570
+                     Mydriasis     55 0.839021 0.709926 0.787778
+       Extrapyramidal disorder     69 0.829484 0.657441 0.788343
+             Oculogyric crisis     25 0.828369 0.707348 0.844086
+Neuroleptic malignant syndrome     40 0.823785 0.813259 0.842055
+          Ejaculation disorder     31 0.820240 0.542679 0.765985
+                 Galactorrhoea     54 0.818711 0.785764 0.829591
+                  Parkinsonism     35 0.817292 0.756599 0.797710
+               Embolism venous     36 0.815205 0.576528 0.773873
+               Muscle rigidity     31 0.801257 0.671134 0.795742
+
+--- where EXPRESSION most outperforms structure ---
+                      se  n_pos   struct     expr  expr_minus_struct
+Musculoskeletal disorder     26 0.495306 0.670730           0.175424
+   Haematocrit decreased     28 0.527103 0.661985           0.134881
+             Nephropathy     30 0.386905 0.517394           0.130489
+          Depressed mood     30 0.387566 0.514616           0.127050
+            Haemorrhoids     41 0.387869 0.510909           0.123040
+               Azotaemia     25 0.490688 0.612967           0.122279
+   VIIth nerve paralysis     27 0.460150 0.582219           0.122069
+              Flank pain     25 0.529273 0.649194           0.119921
+      Generalised oedema     42 0.475852 0.584640           0.108788
+       Urine abnormality     32 0.529694 0.638135           0.108441
+  Vasodilation procedure     62 0.514523 0.620318           0.105796
+        Hepatic necrosis     44 0.472542 0.578061           0.105519
+
+--- least predictable overall ---
+               se  n_pos   struct     expr
+          Blister     52 0.368856 0.436283
+      Nephropathy     30 0.386905 0.517394
+   Depressed mood     30 0.387566 0.514616
+     Haemorrhoids     41 0.387869 0.510909
+    Haematochezia     28 0.402950 0.463580
+    Cholecystitis     40 0.413107 0.485830
+     Pneumothorax     29 0.416388 0.422328
+Lacrimal disorder     30 0.428638 0.493188
+Sinus bradycardia     39 0.432168 0.498575
+         Parosmia     49 0.435388 0.540711
+
+corr(prevalence, structure AUROC) = +0.014
+corr(prevalence, expression AUROC)= +0.044

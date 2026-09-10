@@ -1,0 +1,69 @@
+[1/60] Cellulitis
+[2/60] Pulmonary embolism
+[3/60] Sepsis
+[4/60] Neoplasm
+[5/60] Flatulence
+[6/60] Increased appetite
+[7/60] Influenza
+[8/60] Weight decreased
+[9/60] Neuropathy peripheral
+[10/60] Vasculitis
+[11/60] Acne
+[12/60] Galactorrhoea
+[13/60] Tremor
+[14/60] Hepatic failure
+[15/60] Drug interaction
+[16/60] Endocrine disorder
+[17/60] Disturbance in attention
+[18/60] Affect lability
+[19/60] Lacrimation increased
+[20/60] Protein urine present
+[21/60] Pancreatitis
+[22/60] Hyperkinesia
+[23/60] Tachycardia
+[24/60] Memory impairment
+[25/60] Anaphylactoid reaction
+[26/60] Tubulointerstitial nephritis
+[27/60] Alanine aminotransferase increased
+[28/60] Dry eye
+[29/60] Thinking abnormal
+[30/60] Mental disorder
+[31/60] Herpes zoster
+[32/60] Cerebrovascular accident
+[33/60] Disturbance in sexual arousal
+[34/60] Eosinophilia
+[35/60] Dysuria
+[36/60] Diabetes mellitus
+[37/60] Neuritis
+[38/60] Mouth ulceration
+[39/60] Hyponatraemia
+[40/60] Suicidal ideation
+[41/60] Haemoglobin
+[42/60] Albuminuria
+[43/60] Arthropathy
+[44/60] Hypercholesterolaemia
+[45/60] Wheezing
+[46/60] Pharyngitis
+[47/60] Asthma
+[48/60] Urinary tract disorder
+[49/60] Erythema
+[50/60] Glaucoma
+[51/60] Depressed level of consciousness
+[52/60] Nephrolithiasis
+[53/60] Ventricular extrasystoles
+[54/60] Vaginal inflammation
+[55/60] Gastritis
+[56/60] Ventricular arrhythmia
+[57/60] Immune system disorder
+[58/60] Confusional state
+[59/60] Cystitis noninfective
+[60/60] Osteoarthritis
+
+=== NESTED (honest) over 60 side effects ===
+structure-only     : 0.6010
+expression (mean)  : 0.5300
+expression (rich)  : 0.5293
+blend (nested w)   : 0.5828
+blend - struct     : -0.0182
+labels blend>struct: 11/60
+wilcoxon blend vs struct p = 1.9078058509150748e-07

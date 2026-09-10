@@ -1,0 +1,67 @@
+=== training FULL models (shared across all classes) ===
+  trained full0
+  trained full1
+  trained full2
+=== training CLASS-HOLDOUT models ===
+  trained hold:AED:0
+  trained hold:AED:1
+  trained hold:AED:2
+  trained hold:Statin:0
+  trained hold:Statin:1
+  trained hold:Statin:2
+  trained hold:SSRI:0
+  trained hold:SSRI:1
+  trained hold:SSRI:2
+  trained hold:NSAID:0
+  trained hold:NSAID:1
+  trained hold:NSAID:2
+  trained hold:BetaBlocker:0
+  trained hold:BetaBlocker:1
+  trained hold:BetaBlocker:2
+  trained hold:Antipsychotic:0
+  trained hold:Antipsychotic:1
+  trained hold:Antipsychotic:2
+
+########## readout aggregation = naive_all ##########
+class         view           full    cold    delta        p
+AED           structure     0.534   0.825   +0.290   0.0000
+AED           expression    0.509   0.495   -0.013   0.0859
+AED           concat        0.518   0.716   +0.198   0.0000
+Statin        structure     0.973   0.888   -0.085   0.0074
+Statin        expression    0.887   0.707   -0.179   0.0000
+Statin        concat        0.954   0.844   -0.110   0.0169
+SSRI          structure     0.700   0.940   +0.239   0.0000
+SSRI          expression    0.635   0.447   -0.188   0.0000
+SSRI          concat        0.678   0.778   +0.100   0.0175
+NSAID         structure     0.716   0.792   +0.076   0.0687
+NSAID         expression    0.598   0.543   -0.055   0.0042
+NSAID         concat        0.678   0.705   +0.026   0.5237
+BetaBlocker   structure     0.916   0.978   +0.062   0.0001
+BetaBlocker   expression    0.871   0.766   -0.104   0.0000
+BetaBlocker   concat        0.916   0.967   +0.051   0.0060
+Antipsychotic structure     0.556   0.939   +0.383   0.0000
+Antipsychotic expression    0.479   0.437   -0.042   0.0121
+Antipsychotic concat        0.546   0.826   +0.280   0.0000
+
+########## readout aggregation = hidose24h ##########
+class         view           full    cold    delta        p
+AED           structure     0.534   0.825   +0.290   0.0000
+AED           expression    0.594   0.605   +0.012   0.3709
+AED           concat        0.547   0.718   +0.170   0.0000
+Statin        structure     0.973   0.888   -0.085   0.0074
+Statin        expression    0.898   0.753   -0.145   0.0000
+Statin        concat        0.948   0.837   -0.111   0.0000
+SSRI          structure     0.700   0.940   +0.239   0.0000
+SSRI          expression    0.883   0.817   -0.066   0.0001
+SSRI          concat        0.809   0.900   +0.091   0.0004
+NSAID         structure     0.716   0.792   +0.076   0.0687
+NSAID         expression    0.628   0.538   -0.090   0.0008
+NSAID         concat        0.689   0.694   +0.005   0.8774
+BetaBlocker   structure     0.916   0.978   +0.062   0.0001
+BetaBlocker   expression    0.808   0.677   -0.130   0.0000
+BetaBlocker   concat        0.894   0.961   +0.066   0.0033
+Antipsychotic structure     0.556   0.939   +0.383   0.0000
+Antipsychotic expression    0.611   0.661   +0.050   0.0013
+Antipsychotic concat        0.584   0.873   +0.289   0.0000
+
+saved paperC_coldstart.csv

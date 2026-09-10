@@ -1,0 +1,26 @@
+[
+  {
+    "seed": 0,
+    "alignment": 0.7408695816993713,
+    "uniformity_structure": -2.9230241775512695,
+    "uniformity_expr": -3.361860513687134,
+    "final_loss": 0.6563743589253261,
+    "init_loss": 3.6612432419960133
+  },
+  {
+    "seed": 1,
+    "alignment": 0.7477681040763855,
+    "uniformity_structure": -2.888516902923584,
+    "uniformity_expr": -3.35542631149292,
+    "final_loss": 0.6520491995541333,
+    "init_loss": 3.665776443598893
+  },
+  {
+    "seed": 2,
+    "alignment": 0.7366828322410583,
+    "uniformity_structure": -2.913233995437622,
+    "uniformity_expr": -3.3442747592926025,
+    "final_loss": 0.6553217373751654,
+    "init_loss": 3.645703560025821
+  }
+]

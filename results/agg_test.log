@@ -1,0 +1,9 @@
+representation                       AED        Statin          SSRI         NSAID   BetaBlocker Antipsychotic    MEAN
+[ref] ECFP4 structure              0.784         0.987         0.935         0.838         0.992         0.968   0.917
+naive_mean(current)                0.506         0.733         0.353         0.490         0.577         0.386   0.507
+hi_dose_24h_mean                   0.640         0.772         0.641         0.569         0.555         0.624   0.634
+strongest_sig                      0.492         0.770         0.549         0.511         0.439         0.463   0.537
+maxabs_across                      0.465         0.658         0.399         0.450         0.676         0.445   0.516
+modz_weighted                      0.503         0.683         0.416         0.428         0.572         0.471   0.512
+hi_dose_strongest                  0.580         0.798         0.519         0.513         0.457         0.712   0.596
+percell_hidose_concat              0.658         0.790         0.590         0.657         0.592         0.683   0.662

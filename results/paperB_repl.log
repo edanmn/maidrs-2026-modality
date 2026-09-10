@@ -1,0 +1,11 @@
+running CV seed 1 ...
+running CV seed 2 ...
+
+n endpoints = 586
+structure AUROC reproducibility  (seed1 vs seed2): Spearman rho=0.886
+expression AUROC reproducibility (seed1 vs seed2): Spearman rho=0.807
+EXPRESSION-ADVANTAGE reproducibility             : Spearman rho=0.816
+
+endpoints where expr beats struct by >0.05: seed1 n=37, seed2 n=45
+overlap = 23  (expected by chance if independent = 2.8)
+=> REPRODUCIBLE subset

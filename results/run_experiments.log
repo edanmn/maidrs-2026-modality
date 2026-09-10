@@ -1,0 +1,135 @@
+Loading dataset...
+  103989 signatures, 1725 drugs, expr shape (103989, 978), ecfp shape (1725, 2048)
+  unique drugs w/ any signature: 1725
+    class_AED: 16 positive drugs
+    class_Statin: 5 positive drugs
+    class_SSRI: 6 positive drugs
+    class_NSAID: 8 positive drugs
+    class_BetaBlocker: 6 positive drugs
+    class_Antipsychotic: 7 positive drugs
+
+=== Pretraining: FULL (all drugs) ===
+  [pretrain:full] 103989 sigs, 25 epochs in 86.8s, final loss=0.6564 (init=3.6612)
+  [full] alignment=0.7409  uniformity(structure)=-2.9230  uniformity(expr)=-3.3619
+
+=== Pretraining: RANDOM-HOLDOUT control (holdout size=8) ===
+  [pretrain:randholdout0] 103653 sigs, 25 epochs in 81.6s, final loss=0.6524 (init=3.6743)
+  [pretrain:randholdout1] 103539 sigs, 25 epochs in 84.4s, final loss=0.6498 (init=3.6358)
+  [pretrain:randholdout2] 103524 sigs, 25 epochs in 81.6s, final loss=0.6475 (init=3.6539)
+
+=== Pretraining: CLASS-HOLDOUT (cold-start) per class ===
+  [pretrain:holdout:class_AED] 103319 sigs, 25 epochs in 87.0s, final loss=0.6602 (init=3.6532)
+  [pretrain:holdout:class_Statin] 103773 sigs, 25 epochs in 84.1s, final loss=0.6542 (init=3.6652)
+  [pretrain:holdout:class_SSRI] 103737 sigs, 25 epochs in 85.6s, final loss=0.6508 (init=3.6542)
+  [pretrain:holdout:class_NSAID] 103653 sigs, 25 epochs in 82.3s, final loss=0.6522 (init=3.6677)
+  [pretrain:holdout:class_BetaBlocker] 103737 sigs, 25 epochs in 86.8s, final loss=0.6513 (init=3.6836)
+  [pretrain:holdout:class_Antipsychotic] 103695 sigs, 25 epochs in 84.7s, final loss=0.6527 (init=3.6417)
+
+=== Downstream evaluation (repeated drug-disjoint subsampling) ===
+
+--- class_AED (n_pos=16) ---
+  140 result rows collected for class_AED
+
+--- class_Statin (n_pos=5) ---
+  140 result rows collected for class_Statin
+
+--- class_SSRI (n_pos=6) ---
+  140 result rows collected for class_SSRI
+
+--- class_NSAID (n_pos=8) ---
+  140 result rows collected for class_NSAID
+
+--- class_BetaBlocker (n_pos=6) ---
+  140 result rows collected for class_BetaBlocker
+
+--- class_Antipsychotic (n_pos=7) ---
+  140 result rows collected for class_Antipsychotic
+
+Saved 840 result rows to /mnt/c/Users/rishik/epilepsy_repurpose/ICLR2027_repurpose/results/main_results.csv
+
+=== SUMMARY (mean AUROC by class/method) ===
+                  class                               method      mean       std  count
+0             class_AED      contrastive_classholdout_concat  0.999556  0.000937     10
+1             class_AED  contrastive_classholdout_expression  1.000000  0.000000     10
+2             class_AED   contrastive_classholdout_structure  0.861111  0.068961     10
+3             class_AED              contrastive_full_concat  0.492000  0.060885     10
+4             class_AED          contrastive_full_expression  0.490778  0.072424     10
+5             class_AED           contrastive_full_structure  0.499222  0.054975     10
+6             class_AED      contrastive_randholdout0_concat  0.554889  0.065851     10
+7             class_AED      contrastive_randholdout1_concat  0.560444  0.057819     10
+8             class_AED      contrastive_randholdout2_concat  0.532111  0.085824     10
+9             class_AED                neighbor_connectivity  0.489333  0.104757     10
+10            class_AED                               random  0.514667  0.091468     10
+11            class_AED                        raw_concat_RF  0.490389  0.071743     10
+12            class_AED                         raw_ecfp4_RF  0.783667  0.074697     10
+13            class_AED                    raw_expression_RF  0.505778  0.102200     10
+14  class_Antipsychotic      contrastive_classholdout_concat  1.000000  0.000000     10
+15  class_Antipsychotic  contrastive_classholdout_expression  1.000000  0.000000     10
+16  class_Antipsychotic   contrastive_classholdout_structure  0.936667  0.043461     10
+17  class_Antipsychotic              contrastive_full_concat  0.551667  0.283585     10
+18  class_Antipsychotic          contrastive_full_expression  0.528000  0.262044     10
+19  class_Antipsychotic           contrastive_full_structure  0.527667  0.283823     10
+20  class_Antipsychotic      contrastive_randholdout0_concat  0.625667  0.305392     10
+21  class_Antipsychotic      contrastive_randholdout1_concat  0.584667  0.265210     10
+22  class_Antipsychotic      contrastive_randholdout2_concat  0.554000  0.258928     10
+23  class_Antipsychotic                neighbor_connectivity  0.569000  0.119599     10
+24  class_Antipsychotic                               random  0.500333  0.198702     10
+25  class_Antipsychotic                        raw_concat_RF  0.494000  0.234216     10
+26  class_Antipsychotic                         raw_ecfp4_RF  0.967667  0.027400     10
+27  class_Antipsychotic                    raw_expression_RF  0.385667  0.169320     10
+28    class_BetaBlocker      contrastive_classholdout_concat  1.000000  0.000000     10
+29    class_BetaBlocker  contrastive_classholdout_expression  1.000000  0.000000     10
+30    class_BetaBlocker   contrastive_classholdout_structure  0.978667  0.030760     10
+31    class_BetaBlocker              contrastive_full_concat  0.936667  0.083163     10
+32    class_BetaBlocker          contrastive_full_expression  0.903333  0.111311     10
+33    class_BetaBlocker           contrastive_full_structure  0.938000  0.074935     10
+34    class_BetaBlocker      contrastive_randholdout0_concat  0.925333  0.081319     10
+35    class_BetaBlocker      contrastive_randholdout1_concat  0.929333  0.090086     10
+36    class_BetaBlocker      contrastive_randholdout2_concat  0.922667  0.103861     10
+37    class_BetaBlocker                neighbor_connectivity  0.699667  0.144226     10
+38    class_BetaBlocker                               random  0.500333  0.198702     10
+39    class_BetaBlocker                        raw_concat_RF  0.879167  0.111348     10
+40    class_BetaBlocker                         raw_ecfp4_RF  0.991667  0.015010     10
+41    class_BetaBlocker                    raw_expression_RF  0.577000  0.162920     10
+42          class_NSAID      contrastive_classholdout_concat  0.993333  0.006869     10
+43          class_NSAID  contrastive_classholdout_expression  1.000000  0.000000     10
+44          class_NSAID   contrastive_classholdout_structure  0.656444  0.119639     10
+45          class_NSAID              contrastive_full_concat  0.727333  0.068678     10
+46          class_NSAID          contrastive_full_expression  0.628444  0.036240     10
+47          class_NSAID           contrastive_full_structure  0.768222  0.085079     10
+48          class_NSAID      contrastive_randholdout0_concat  0.650000  0.071873     10
+49          class_NSAID      contrastive_randholdout1_concat  0.754222  0.088115     10
+50          class_NSAID      contrastive_randholdout2_concat  0.768889  0.069337     10
+51          class_NSAID                neighbor_connectivity  0.558667  0.119419     10
+52          class_NSAID                               random  0.496444  0.153550     10
+53          class_NSAID                        raw_concat_RF  0.556333  0.158325     10
+54          class_NSAID                         raw_ecfp4_RF  0.838000  0.084636     10
+55          class_NSAID                    raw_expression_RF  0.489556  0.144951     10
+56           class_SSRI      contrastive_classholdout_concat  0.995000  0.014678     10
+57           class_SSRI  contrastive_classholdout_expression  1.000000  0.000000     10
+58           class_SSRI   contrastive_classholdout_structure  0.905333  0.109287     10
+59           class_SSRI              contrastive_full_concat  0.747333  0.139627     10
+60           class_SSRI          contrastive_full_expression  0.671667  0.126825     10
+61           class_SSRI           contrastive_full_structure  0.759000  0.149543     10
+62           class_SSRI      contrastive_randholdout0_concat  0.687667  0.105714     10
+63           class_SSRI      contrastive_randholdout1_concat  0.742000  0.145256     10
+64           class_SSRI      contrastive_randholdout2_concat  0.645333  0.142527     10
+65           class_SSRI                neighbor_connectivity  0.525667  0.130744     10
+66           class_SSRI                               random  0.500333  0.198702     10
+67           class_SSRI                        raw_concat_RF  0.448333  0.131911     10
+68           class_SSRI                         raw_ecfp4_RF  0.934500  0.079923     10
+69           class_SSRI                    raw_expression_RF  0.353333  0.102848     10
+70         class_Statin      contrastive_classholdout_concat  0.980667  0.061137     10
+71         class_Statin  contrastive_classholdout_expression  1.000000  0.000000     10
+72         class_Statin   contrastive_classholdout_structure  0.851667  0.212349     10
+73         class_Statin              contrastive_full_concat  0.977000  0.021912     10
+74         class_Statin          contrastive_full_expression  0.922333  0.053542     10
+75         class_Statin           contrastive_full_structure  0.988667  0.013352     10
+76         class_Statin      contrastive_randholdout0_concat  0.947333  0.047004     10
+77         class_Statin      contrastive_randholdout1_concat  0.954667  0.043947     10
+78         class_Statin      contrastive_randholdout2_concat  0.922667  0.076478     10
+79         class_Statin                neighbor_connectivity  0.690000  0.171968     10
+80         class_Statin                               random  0.500333  0.198702     10
+81         class_Statin                        raw_concat_RF  0.944333  0.090182     10
+82         class_Statin                         raw_ecfp4_RF  0.987333  0.040056     10
+83         class_Statin                    raw_expression_RF  0.732833  0.197037     10

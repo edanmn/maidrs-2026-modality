@@ -1,0 +1,18 @@
+=== per-modality model check (mean AUROC over classes) ===
+  struct_RF     0.9171
+  struct_LR     0.9169
+  expr_hi_RF    0.6406
+  expr_hi_LR    0.7329
+  expr_gold_LR  0.7272
+
+=== CROSS-MODAL BLEND: struct(RF/ECFP4) + expr(LogReg/hi-dose), fixed 50/50 ===
+class              struct     expr    blend     gain         p
+AED                 0.799    0.571    0.797   -0.002    0.3801
+Statin              0.989    0.927    1.000   +0.011    0.1797
+SSRI                0.944    0.815    0.949   +0.005    0.6963
+NSAID               0.843    0.631    0.842   -0.001    0.3620
+BetaBlocker         0.994    0.837    0.996   +0.002    0.5176
+Antipsychotic       0.927    0.701    0.923   -0.004    0.0421
+
+POOLED n=120: struct=0.9160 expr=0.7468 blend=0.9178
+gain=+0.0018  p=3.076e-01  wins=27/120

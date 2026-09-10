@@ -1,0 +1,50 @@
+[1] Cellulitis
+[2] Pulmonary embolism
+[3] Sepsis
+[4] Neoplasm
+[5] Flatulence
+[6] Increased appetite
+[7] Influenza
+[8] Weight decreased
+[9] Neuropathy peripheral
+[10] Vasculitis
+[11] Acne
+[12] Galactorrhoea
+[13] Tremor
+[14] Hepatic failure
+[15] Drug interaction
+[16] Endocrine disorder
+[17] Disturbance in attention
+[18] Affect lability
+[19] Lacrimation increased
+[20] Protein urine present
+[21] Pancreatitis
+[22] Hyperkinesia
+[23] Tachycardia
+[24] Memory impairment
+[25] Anaphylactoid reaction
+[26] Tubulointerstitial nephritis
+[27] Alanine aminotransferase increased
+[28] Dry eye
+[29] Thinking abnormal
+[30] Mental disorder
+[31] Herpes zoster
+[32] Cerebrovascular accident
+[33] Disturbance in sexual arousal
+[34] Eosinophilia
+[35] Dysuria
+[36] Diabetes mellitus
+[37] Neuritis
+[38] Mouth ulceration
+[39] Hyponatraemia
+[40] Suicidal ideation
+
+=== SIDER with PROPER expression features (40 side effects) ===
+structure only        : 0.6095
+expr naive_mean          : 0.5303
+expr strongest(Wang16)   : 0.5227
+expr percell_hidose      : 0.5405
+
+blend50 struct+naive_mean          : 0.5959  gain=-0.0136  p=1.85e-02  wins=13/40
+blend50 struct+strongest(Wang16)   : 0.5956  gain=-0.0139  p=3.87e-03  wins=11/40
+blend50 struct+percell_hidose      : 0.6063  gain=-0.0032  p=5.54e-01  wins=18/40

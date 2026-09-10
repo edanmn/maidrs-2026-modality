@@ -1,0 +1,7 @@
+responsive compounds: 364/534
+[all compounds] n_endpoints=586  struct=0.6001  expr=0.5290  adv=-0.0711
+[responsive only (TAS>=0.3)] n_endpoints=465  struct=0.5990  expr=0.5501  adv=-0.0489
+
+common endpoints=465
+expression AUROC: all=0.5288  responsive=0.5501  delta=+0.0213  p=0.0000
+structure AUROC : all=0.5986  responsive=0.5990  delta=+0.0003  p=0.7158

@@ -1,0 +1,15 @@
+
+########## embedding aggregation = naive_all(original) ##########
+class          view            full  coldstart    delta        p
+   pretrained full0 (103989 sigs)
+   pretrained hold:class_AED:0 (103319 sigs)
+   pretrained full1 (103989 sigs)
+   pretrained hold:class_AED:1 (103319 sigs)
+   pretrained full2 (103989 sigs)
+   pretrained hold:class_AED:2 (103319 sigs)
+AED            structure      0.534      0.825   +0.290   0.0000
+AED            expression     0.509      0.495   -0.013   0.0859
+AED            concat         0.518      0.716   +0.198   0.0000
+   pretrained full0 (103989 sigs)
+   pretrained hold:class_Statin:0 (103773 sigs)
+   pretrained full1 (103989 sigs)

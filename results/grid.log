@@ -1,0 +1,55 @@
+A1_naive_mean_all     M1_RF       0.5250  (n=36)
+A1_naive_mean_all     M2_LogReg   0.6638  (n=36)
+A1_naive_mean_all     M3_kNN      0.5353  (n=36)
+A1_naive_mean_all     M4_SVM_rbf  0.5326  (n=36)
+A1_naive_mean_all     M5_GBM      0.5525  (n=36)
+A2_hidose24h_mean     M1_RF       0.6406  (n=36)
+A2_hidose24h_mean     M2_LogReg   0.7329  (n=36)
+A2_hidose24h_mean     M3_kNN      0.5477  (n=36)
+A2_hidose24h_mean     M4_SVM_rbf  0.6723  (n=36)
+A2_hidose24h_mean     M5_GBM      0.5554  (n=36)
+A3_bestTAS_single     M1_RF       0.5831  (n=36)
+A3_bestTAS_single     M2_LogReg   0.7141  (n=36)
+A3_bestTAS_single     M3_kNN      0.5779  (n=36)
+A3_bestTAS_single     M4_SVM_rbf  0.6140  (n=36)
+A3_bestTAS_single     M5_GBM      0.5222  (n=36)
+A4_TASweighted        M1_RF       0.5458  (n=36)
+A4_TASweighted        M2_LogReg   0.6855  (n=36)
+A4_TASweighted        M3_kNN      0.5419  (n=36)
+A4_TASweighted        M4_SVM_rbf  0.5559  (n=36)
+A4_TASweighted        M5_GBM      0.5338  (n=36)
+A5_gold_mean          M1_RF       0.5869  (n=36)
+A5_gold_mean          M2_LogReg   0.7272  (n=36)
+A5_gold_mean          M3_kNN      0.5456  (n=36)
+A5_gold_mean          M4_SVM_rbf  0.6730  (n=36)
+A5_gold_mean          M5_GBM      0.5752  (n=36)
+A6_percell_hidose     M1_RF       0.6671  (n=36)
+A6_percell_hidose     M2_LogReg   0.6311  (n=36)
+A6_percell_hidose     M3_kNN      0.5519  (n=36)
+A6_percell_hidose     M4_SVM_rbf  0.6273  (n=36)
+A6_percell_hidose     M5_GBM      0.5169  (n=36)
+A7_percell_gold       M1_RF       0.6450  (n=36)
+A7_percell_gold       M2_LogReg   0.6881  (n=36)
+A7_percell_gold       M3_kNN      0.5303  (n=36)
+A7_percell_gold       M4_SVM_rbf  0.6482  (n=36)
+A7_percell_gold       M5_GBM      0.5563  (n=36)
+
+=== GRID (expression-only AUROC) ===
+model              M1_RF  M2_LogReg  M3_kNN  M4_SVM_rbf  M5_GBM
+agg                                                            
+A1_naive_mean_all  0.525      0.664   0.535       0.533   0.552
+A2_hidose24h_mean  0.641      0.733   0.548       0.672   0.555
+A3_bestTAS_single  0.583      0.714   0.578       0.614   0.522
+A4_TASweighted     0.546      0.686   0.542       0.556   0.534
+A5_gold_mean       0.587      0.727   0.546       0.673   0.575
+A6_percell_hidose  0.667      0.631   0.552       0.627   0.517
+A7_percell_gold    0.645      0.688   0.530       0.648   0.556
+
+=== VARIANCE DECOMPOSITION ===
+between-AGGREGATION variance explained : 12.5%
+between-MODEL variance explained       : 68.3%
+ratio (preprocessing / model)          : 0.2x
+
+range across aggregations (best model): 0.733 vs worst 0.517
+spread within best aggregation across models: 0.185
+spread within best model across aggregations: 0.102
