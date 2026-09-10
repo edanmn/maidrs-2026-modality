@@ -1,15 +1,16 @@
 Phase1: (46726, 978), 1001 compounds
-  hi-dose/24h: 14936   exemplar: 17104
+  hi-dose/24h: 13208   exemplar: 17104
+  positive control: HMGCR +1.53 under statins against +0.13 elsewhere
 
 === (A) AGGREGATION x MODEL on PHASE 1 (expression-only AUROC) ===
-representation               RF   LogReg
-naive_mean_all            0.586    0.719
-hidose24h                 0.559    0.697
-strongest_distil_ss       0.528    0.492
-exemplar_mean             0.559    0.681
+representation                 RF   LogReg
+naive_mean_all              0.580    0.730
+hidose24h                   0.543    0.686
+strongest_distil_ss         0.548    0.513
+exemplar_mean               0.577    0.671
 
-=== (B) WANG 2016 REPLICATION on PHASE 1 (SIDER, strongest-signature) ===
+=== (B) WANG 2016 REPLICATION on PHASE 1 (SIDER) ===
   compounds 428, usable endpoints 546
-  n=546  structure 0.6022  expr(strongest distil_ss) 0.5117  expr(exemplar) 0.5263
-  expr_strongest - structure: -0.0905  p=4.60e-64  wins=82/546
-  expr_exemplar - structure: -0.0760  p=2.68e-64  wins=86/546
+  n=546  structure 0.6003  expr(strongest distil_ss) 0.5117  expr(exemplar) 0.5263
+  expr_strongest - structure: -0.0885  p=1.39e-63  wins=87/546
+  expr_exemplar - structure: -0.0740  p=7.01e-63  wins=83/546

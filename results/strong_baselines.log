@@ -1,18 +1,14 @@
-building richer structural representations...
-  multi-representation: (1725, 2225)
-computing Tanimoto kernel...
-  AED done
-  Statin done
-  SSRI done
-  NSAID done
-  BetaBlocker done
-  Antipsychotic done
+1725 drugs; multi-representation dim = 2225
+  class_AED: done
+  class_Statin: done
+  class_SSRI: done
+  class_NSAID: done
+  class_BetaBlocker: done
+  class_Antipsychotic: done
 
-=== STRONGER STRUCTURAL BASELINES ===
-class                class_AED  class_Antipsychotic  class_BetaBlocker  class_NSAID  class_SSRI  class_Statin   MEAN
-method                                                                                                              
-ECFP4+RF (ours)          0.784                0.968              0.992        0.838       0.935         0.987  0.917
-GIP-style kernel LR      0.803                0.980              0.980        0.769       0.971         0.956  0.910
-MACCS+desc+ECFP4 RF      0.823                0.970              0.997        0.860       0.970         0.968  0.931
-Tanimoto kNN             0.777                0.980              0.985        0.802       0.916         0.959  0.903
-multi-rep GBM            0.525                0.503              0.402        0.663       0.596         0.800  0.582
+=== mean AUROC over six classes and 10 seeds ===
+  MACCS+desc+ECFP4 RF        0.9301
+  ECFP4+RF (ours)            0.9171
+  GIP-style kernel LR        0.9097
+  Tanimoto kNN               0.9032
+  multi-rep GBM              0.5815

@@ -1,5 +1,5 @@
-cell                  mean            95% CI      n
-naive x RF           0.548   [0.518, 0.577]    180
-naive x LogReg       0.663   [0.636, 0.688]    180
-hidose x RF          0.640   [0.612, 0.668]    180
-hidose x LogReg      0.748   [0.723, 0.773]    180
+cell                    mean             95% CI      n
+naive x RF             0.548  [0.520, 0.577]    180
+naive x LogReg         0.663  [0.637, 0.689]    180
+hidose x RF            0.635  [0.606, 0.665]    180
+hidose x LogReg        0.752  [0.728, 0.776]    180

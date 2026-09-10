@@ -1,0 +1,75 @@
+1725 drugs x 978 landmark genes, corrected (10 uM / 24 h) features
+
+## class_AED  (16 members)
+   P4HTM      delta=-0.42  p=2.01e-03  q=0.544
+   GAA        delta=-0.38  p=2.75e-03  q=0.544
+   HSD17B11   delta=-0.46  p=2.80e-03  q=0.544
+   PHKG2      delta=+0.23  p=3.57e-03  q=0.544
+   CCNB1      delta=+0.60  p=5.24e-03  q=0.544
+   EGR1       delta=-0.59  p=5.43e-03  q=0.544
+   C2CD2      delta=-0.33  p=6.18e-03  q=0.544
+   CALM3      delta=+0.31  p=6.45e-03  q=0.544
+   GALE       delta=-0.38  p=7.05e-03  q=0.544
+   FOXO4      delta=-0.47  p=7.16e-03  q=0.544
+
+## class_Statin  (5 members)
+   CPSF4      delta=-0.94  p=2.41e-05  q=0.012
+   HMGCR      delta=+2.62  p=3.75e-05  q=0.012
+   TM9SF2     delta=+1.71  p=3.82e-05  q=0.012
+   CEBPZ      delta=-0.90  p=5.68e-05  q=0.013
+   HMGCS1     delta=+3.66  p=8.12e-05  q=0.013
+   POLR1C     delta=-1.26  p=8.68e-05  q=0.013
+   RHOA       delta=+3.21  p=9.58e-05  q=0.013
+   LGALS8     delta=-0.79  p=1.20e-04  q=0.015
+   ELOVL6     delta=+1.52  p=1.62e-04  q=0.017
+   DSG2       delta=+0.89  p=1.77e-04  q=0.017
+
+## class_SSRI  (6 members)
+   EBP        delta=+1.72  p=1.42e-04  q=0.109
+   LIPA       delta=+1.42  p=3.05e-04  q=0.109
+   TMEM97     delta=+1.69  p=3.35e-04  q=0.109
+   FDFT1      delta=+2.17  p=8.36e-04  q=0.204
+   HMGCS1     delta=+3.08  p=1.31e-03  q=0.257
+   BHLHE40    delta=+0.70  p=1.75e-03  q=0.285
+   FBXO21     delta=-0.58  p=2.08e-03  q=0.290
+   SERPINE1   delta=-0.58  p=3.22e-03  q=0.346
+   TSKU       delta=+0.56  p=3.52e-03  q=0.346
+   GNPDA1     delta=+1.41  p=3.61e-03  q=0.346
+
+## class_NSAID  (8 members)
+   NUP85      delta=+0.69  p=2.16e-03  q=0.754
+   BRCA1      delta=+0.57  p=5.63e-03  q=0.754
+   GATA2      delta=-0.54  p=6.37e-03  q=0.754
+   MSH6       delta=+0.57  p=9.28e-03  q=0.754
+   UBE2C      delta=+0.97  p=1.03e-02  q=0.754
+   MYBL2      delta=+0.55  p=1.06e-02  q=0.754
+   PSMF1      delta=-0.42  p=1.12e-02  q=0.754
+   PCNA       delta=+1.23  p=1.52e-02  q=0.754
+   HMGA2      delta=+0.46  p=1.78e-02  q=0.754
+   GRB7       delta=-0.37  p=2.09e-02  q=0.754
+
+## class_BetaBlocker  (6 members)
+   PCNA       delta=+1.78  p=1.20e-04  q=0.117
+   PRSS23     delta=+0.73  p=1.32e-03  q=0.646
+   ACAT2      delta=+1.46  p=3.27e-03  q=0.847
+   NFATC3     delta=-0.93  p=4.79e-03  q=0.847
+   WDR7       delta=-0.56  p=5.15e-03  q=0.847
+   CRYZ       delta=+0.69  p=5.20e-03  q=0.847
+   NSDHL      delta=+0.55  p=6.22e-03  q=0.868
+   AKAP8L     delta=-0.59  p=7.20e-03  q=0.881
+   DLD        delta=+0.70  p=8.66e-03  q=0.941
+   HMGCS1     delta=+1.13  p=1.11e-02  q=0.994
+
+## class_Antipsychotic  (7 members)
+   COPS7A     delta=+0.58  p=9.29e-04  q=0.636
+   DSG2       delta=-0.57  p=1.37e-03  q=0.636
+   TBPL1      delta=-0.54  p=3.49e-03  q=0.636
+   DPH2       delta=-0.53  p=4.00e-03  q=0.636
+   TMEM5      delta=-0.41  p=4.45e-03  q=0.636
+   TMCO1      delta=-0.53  p=5.45e-03  q=0.636
+   NFKBIB     delta=-0.49  p=6.10e-03  q=0.636
+   CHIC2      delta=-0.63  p=6.61e-03  q=0.636
+   KLHDC2     delta=+0.67  p=7.27e-03  q=0.636
+   WFS1       delta=+0.40  p=7.61e-03  q=0.636
+
+wrote /mnt/c/Users/rishik/epilepsy_repurpose/BIBM_MAIDRS/results/bio_interpretation.json

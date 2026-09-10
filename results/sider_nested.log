@@ -1,69 +1,71 @@
-[1/60] Cellulitis
-[2/60] Pulmonary embolism
-[3/60] Sepsis
-[4/60] Neoplasm
-[5/60] Flatulence
-[6/60] Increased appetite
-[7/60] Influenza
-[8/60] Weight decreased
-[9/60] Neuropathy peripheral
-[10/60] Vasculitis
-[11/60] Acne
-[12/60] Galactorrhoea
-[13/60] Tremor
-[14/60] Hepatic failure
-[15/60] Drug interaction
-[16/60] Endocrine disorder
-[17/60] Disturbance in attention
-[18/60] Affect lability
-[19/60] Lacrimation increased
-[20/60] Protein urine present
-[21/60] Pancreatitis
-[22/60] Hyperkinesia
-[23/60] Tachycardia
-[24/60] Memory impairment
-[25/60] Anaphylactoid reaction
-[26/60] Tubulointerstitial nephritis
-[27/60] Alanine aminotransferase increased
-[28/60] Dry eye
-[29/60] Thinking abnormal
-[30/60] Mental disorder
-[31/60] Herpes zoster
-[32/60] Cerebrovascular accident
-[33/60] Disturbance in sexual arousal
-[34/60] Eosinophilia
-[35/60] Dysuria
-[36/60] Diabetes mellitus
-[37/60] Neuritis
-[38/60] Mouth ulceration
-[39/60] Hyponatraemia
-[40/60] Suicidal ideation
-[41/60] Haemoglobin
-[42/60] Albuminuria
-[43/60] Arthropathy
-[44/60] Hypercholesterolaemia
-[45/60] Wheezing
-[46/60] Pharyngitis
-[47/60] Asthma
-[48/60] Urinary tract disorder
-[49/60] Erythema
-[50/60] Glaucoma
-[51/60] Depressed level of consciousness
-[52/60] Nephrolithiasis
-[53/60] Ventricular extrasystoles
-[54/60] Vaginal inflammation
-[55/60] Gastritis
-[56/60] Ventricular arrhythmia
-[57/60] Immune system disorder
-[58/60] Confusional state
-[59/60] Cystitis noninfective
-[60/60] Osteoarthritis
+534 LINCS compounds map to SIDER; 3446 side-effect terms
+586 endpoints with >= 25 positive and >= 25 negative drugs
+[1/60] Hearing impaired
+[2/60] Cataract
+[3/60] Supraventricular tachycardia
+[4/60] Euphoric mood
+[5/60] Nephropathy
+[6/60] Cholelithiasis
+[7/60] Sneezing
+[8/60] Akathisia
+[9/60] Balance disorder
+[10/60] Sinus congestion
+[11/60] White blood cell count decreased
+[12/60] Myopathy
+[13/60] Skin hyperpigmentation
+[14/60] Nystagmus
+[15/60] Diplopia
+[16/60] Skin discolouration
+[17/60] Electrocardiogram abnormal
+[18/60] Visual impairment
+[19/60] Amnesia
+[20/60] Vaginal infection
+[21/60] Intestinal obstruction
+[22/60] Liver function test abnormal
+[23/60] Parosmia
+[24/60] Mediastinal disorder
+[25/60] Eosinophilia
+[26/60] Mania
+[27/60] Oedema peripheral
+[28/60] Erectile dysfunction
+[29/60] Metrorrhagia
+[30/60] Prostatic disorder
+[31/60] Gout
+[32/60] Pneumonia
+[33/60] Mucosal inflammation
+[34/60] Polyuria
+[35/60] Haematochezia
+[36/60] Sensory loss
+[37/60] Ear disorder
+[38/60] Skin ulcer
+[39/60] Coronary artery disease
+[40/60] Pregnancy
+[41/60] Arrhythmia
+[42/60] Dysgeusia
+[43/60] Pelvic pain
+[44/60] Aphthous stomatitis
+[45/60] Dysphonia
+[46/60] Hyperkalaemia
+[47/60] Hypocalcaemia
+[48/60] Abdominal distension
+[49/60] Pancreatitis acute
+[50/60] Oropharyngeal pain
+[51/60] Atrioventricular block
+[52/60] Candida infection
+[53/60] Tubulointerstitial nephritis
+[54/60] Loss of consciousness
+[55/60] Liver disorder
+[56/60] Muscle rigidity
+[57/60] Keratitis
+[58/60] Cystitis
+[59/60] Agitation
+[60/60] Photosensitivity reaction
 
 === NESTED (honest) over 60 side effects ===
-structure-only     : 0.6010
-expression (mean)  : 0.5300
-expression (rich)  : 0.5293
-blend (nested w)   : 0.5828
-blend - struct     : -0.0182
-labels blend>struct: 11/60
-wilcoxon blend vs struct p = 1.9078058509150748e-07
+structure-only     : 0.5892
+expression (mean)  : 0.5298
+expression (rich)  : 0.5428
+blend (nested w)   : 0.5727
+blend - struct     : -0.0166
+labels blend>struct: 10/60
+wilcoxon blend vs struct p = 0.000175395

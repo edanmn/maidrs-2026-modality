@@ -1,0 +1,73 @@
+device=cuda
+103989 signatures, 1725 drugs, expr 978d, ecfp 2048d
+
+=== margin selection (inner split: 1380 train / 345 val drugs) ===
+  [finlayson seed=0 a=0.05 b=0.8] 8 ep in 53s, loss 0.1635 -> 0.0485
+    alpha=0.05 beta=0.8  val MRR=0.0396
+  [finlayson seed=0 a=0.05 b=1.0] 8 ep in 24s, loss 0.1448 -> 0.0445
+    alpha=0.05 beta=1.0  val MRR=0.0393
+  [finlayson seed=0 a=0.05 b=1.2] 8 ep in 24s, loss 0.1277 -> 0.0416
+    alpha=0.05 beta=1.2  val MRR=0.0460
+  [finlayson seed=0 a=0.05 b=1.4] 8 ep in 86s, loss 0.1218 -> 0.0420
+    alpha=0.05 beta=1.4  val MRR=0.0536
+  [finlayson seed=0 a=0.05 b=1.6] 8 ep in 45s, loss 0.1354 -> 0.0471
+    alpha=0.05 beta=1.6  val MRR=0.0473
+  [finlayson seed=0 a=0.05 b=1.8] 8 ep in 24s, loss 0.1632 -> 0.0656
+    alpha=0.05 beta=1.8  val MRR=0.0291
+  [finlayson seed=0 a=0.1 b=0.8] 8 ep in 24s, loss 0.2976 -> 0.0935
+    alpha=0.1 beta=0.8  val MRR=0.0353
+  [finlayson seed=0 a=0.1 b=1.0] 8 ep in 24s, loss 0.2641 -> 0.0858
+    alpha=0.1 beta=1.0  val MRR=0.0376
+  [finlayson seed=0 a=0.1 b=1.2] 8 ep in 24s, loss 0.2376 -> 0.0823
+    alpha=0.1 beta=1.2  val MRR=0.0459
+  [finlayson seed=0 a=0.1 b=1.4] 8 ep in 24s, loss 0.2365 -> 0.0893
+    alpha=0.1 beta=1.4  val MRR=0.0465
+  [finlayson seed=0 a=0.1 b=1.6] 8 ep in 23s, loss 0.2560 -> 0.1135
+    alpha=0.1 beta=1.6  val MRR=0.0391
+  [finlayson seed=0 a=0.1 b=1.8] 8 ep in 23s, loss 0.3074 -> 0.1682
+    alpha=0.1 beta=1.8  val MRR=0.0297
+  [finlayson seed=0 a=0.2 b=0.8] 8 ep in 23s, loss 0.5599 -> 0.1935
+    alpha=0.2 beta=0.8  val MRR=0.0306
+  [finlayson seed=0 a=0.2 b=1.0] 8 ep in 24s, loss 0.4988 -> 0.1803
+    alpha=0.2 beta=1.0  val MRR=0.0349
+  [finlayson seed=0 a=0.2 b=1.2] 8 ep in 23s, loss 0.4696 -> 0.1930
+    alpha=0.2 beta=1.2  val MRR=0.0374
+  [finlayson seed=0 a=0.2 b=1.4] 8 ep in 24s, loss 0.4843 -> 0.2366
+    alpha=0.2 beta=1.4  val MRR=0.0349
+  [finlayson seed=0 a=0.2 b=1.6] 8 ep in 23s, loss 0.5248 -> 0.3109
+    alpha=0.2 beta=1.6  val MRR=0.0309
+  [finlayson seed=0 a=0.2 b=1.8] 8 ep in 23s, loss 0.6326 -> 0.4712
+    alpha=0.2 beta=1.8  val MRR=0.0302
+  selected alpha=0.05, beta=1.4 (val MRR=0.0536)
+
+=== pretraining 3 seeds on all 103989 signatures ===
+  [finlayson seed=0 a=0.05 b=1.4] 25 ep in 146s, loss 0.1222 -> 0.0236
+  [finlayson seed=1 a=0.05 b=1.4] 25 ep in 171s, loss 0.1210 -> 0.0234
+  [finlayson seed=2 a=0.05 b=1.4] 25 ep in 148s, loss 0.1212 -> 0.0236
+
+=== downstream class recovery (drug-disjoint, seed0=42, 10 repeats) ===
+  class_AED: done
+  class_Statin: done
+  class_SSRI: done
+  class_NSAID: done
+  class_BetaBlocker: done
+  class_Antipsychotic: done
+
+=== mean AUROC by class (Finlayson quadruplet, concat view) ===
+  class_AED              0.5764
+  class_Statin           0.9298
+  class_SSRI             0.6499
+  class_NSAID            0.7524
+  class_BetaBlocker      0.9007
+  class_Antipsychotic    0.6972
+  MEAN                   0.7511
+
+=== paired vs raw ECFP4 + RF (Wilcoxon over subsampling seeds) ===
+  class_AED              finlayson=0.5764  rf=0.7837  p=0.001953
+  class_Statin           finlayson=0.9298  rf=0.9873  p=0.003906
+  class_SSRI             finlayson=0.6499  rf=0.9345  p=0.001953
+  class_NSAID            finlayson=0.7524  rf=0.8380  p=0.003906
+  class_BetaBlocker      finlayson=0.9007  rf=0.9917  p=0.001953
+  class_Antipsychotic    finlayson=0.6972  rf=0.9677  p=0.001953
+
+wrote /mnt/c/Users/rishik/epilepsy_repurpose/BIBM_MAIDRS/results/finlayson_baseline.csv (540 rows)

@@ -1,31 +1,31 @@
 class,method,auroc
-class_AED,ECFP4+RF (ours),0.7836666666666666
-class_AED,MACCS+desc+ECFP4 RF,0.8225555555555557
-class_AED,multi-rep GBM,0.5248333333333334
-class_AED,Tanimoto kNN,0.776888888888889
+class_AED,ECFP4+RF (ours),0.7836666666666667
 class_AED,GIP-style kernel LR,0.8025555555555556
-class_Statin,ECFP4+RF (ours),0.9873333333333333
-class_Statin,MACCS+desc+ECFP4 RF,0.9676666666666666
-class_Statin,multi-rep GBM,0.7996666666666666
-class_Statin,Tanimoto kNN,0.9586666666666666
-class_Statin,GIP-style kernel LR,0.9563333333333333
-class_SSRI,ECFP4+RF (ours),0.9345000000000001
-class_SSRI,MACCS+desc+ECFP4 RF,0.9696666666666667
-class_SSRI,multi-rep GBM,0.5965
-class_SSRI,Tanimoto kNN,0.916
-class_SSRI,GIP-style kernel LR,0.9713333333333335
-class_NSAID,ECFP4+RF (ours),0.8379999999999999
-class_NSAID,MACCS+desc+ECFP4 RF,0.8602222222222222
-class_NSAID,multi-rep GBM,0.6632222222222222
-class_NSAID,Tanimoto kNN,0.8024444444444445
-class_NSAID,GIP-style kernel LR,0.7686666666666666
-class_BetaBlocker,ECFP4+RF (ours),0.9916666666666666
-class_BetaBlocker,MACCS+desc+ECFP4 RF,0.9966666666666667
-class_BetaBlocker,multi-rep GBM,0.4023333333333333
-class_BetaBlocker,Tanimoto kNN,0.9853333333333334
-class_BetaBlocker,GIP-style kernel LR,0.9796666666666667
+class_AED,MACCS+desc+ECFP4 RF,0.8174444444444445
+class_AED,Tanimoto kNN,0.776888888888889
+class_AED,multi-rep GBM,0.5242777777777777
 class_Antipsychotic,ECFP4+RF (ours),0.9676666666666666
-class_Antipsychotic,MACCS+desc+ECFP4 RF,0.9703333333333333
-class_Antipsychotic,multi-rep GBM,0.5026666666666667
-class_Antipsychotic,Tanimoto kNN,0.9800000000000001
 class_Antipsychotic,GIP-style kernel LR,0.9796666666666667
+class_Antipsychotic,MACCS+desc+ECFP4 RF,0.9673333333333332
+class_Antipsychotic,Tanimoto kNN,0.9800000000000001
+class_Antipsychotic,multi-rep GBM,0.5025000000000001
+class_BetaBlocker,ECFP4+RF (ours),0.9916666666666666
+class_BetaBlocker,GIP-style kernel LR,0.9796666666666667
+class_BetaBlocker,MACCS+desc+ECFP4 RF,0.9953333333333333
+class_BetaBlocker,Tanimoto kNN,0.9853333333333334
+class_BetaBlocker,multi-rep GBM,0.4023333333333333
+class_NSAID,ECFP4+RF (ours),0.8379999999999999
+class_NSAID,GIP-style kernel LR,0.7686666666666666
+class_NSAID,MACCS+desc+ECFP4 RF,0.8648888888888889
+class_NSAID,Tanimoto kNN,0.8024444444444445
+class_NSAID,multi-rep GBM,0.6632222222222222
+class_SSRI,ECFP4+RF (ours),0.9345000000000001
+class_SSRI,GIP-style kernel LR,0.9713333333333333
+class_SSRI,MACCS+desc+ECFP4 RF,0.9683333333333334
+class_SSRI,Tanimoto kNN,0.916
+class_SSRI,multi-rep GBM,0.5968333333333333
+class_Statin,ECFP4+RF (ours),0.9873333333333333
+class_Statin,GIP-style kernel LR,0.9563333333333333
+class_Statin,MACCS+desc+ECFP4 RF,0.9675
+class_Statin,Tanimoto kNN,0.9586666666666666
+class_Statin,multi-rep GBM,0.7996666666666667

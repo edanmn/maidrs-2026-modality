@@ -17,7 +17,7 @@ ROOT = os.environ.get(
 )
 PAPER_DIR = f"{ROOT}/BIBM_MAIDRS"
 FIGS = f"{PAPER_DIR}/figures"
-RESULTS = f"{ROOT}/ICLR2027_repurpose/results"
+RESULTS = os.environ.get("MAIDRS_RESULTS", f"{PAPER_DIR}/results")
 DATA = f"{ROOT}/ICLR2027_repurpose/data"
 
 BG = "#fafafa"
