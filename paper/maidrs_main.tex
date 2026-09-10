@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{Model-Class Mismatch and Aggregation Artifacts in Structure--Transcriptome Drug Repurposing}
+\title{Recovering a Transcriptomic Modality That Looks Uninformative: Model-Class Mismatch and Aggregation in LINCS Drug Repurposing}
 
 \ifanon
 \author{\IEEEauthorblockN{Anonymous Author(s)}
@@ -38,33 +38,30 @@ dan.mccreary@gmail.com}}
 \maketitle
 
 \begin{abstract}
-Aligning drug chemical structure with perturbational transcriptomic response via
-contrastive learning is an increasingly popular recipe for computational drug
-repurposing. We evaluated it on real LINCS L1000 data across six pharmacological
-drug classes and it failed: in every disease area a plain random forest on ECFP4
-fingerprints beat every contrastive variant we trained ($p \le 0.027$), and it
-also loses to four stronger structural baselines. The published alignment
-objective this recipe comes from, reimplemented and tuned under the same
-protocol, reaches $0.751$ against $0.917$ for the random forest and loses in all
-six classes ($p \le 0.0039$). The more useful result is how
-close we came to publishing the wrong explanation. Our initial analysis concluded
-that L1000 expression carries essentially no usable drug-level signal (AUROC
-$0.548$ on Phase~2, 95\% CI $[0.520, 0.577]$). Two ordinary choices produced that
-number: averaging Level-5 signatures across all doses, cell lines and timepoints,
-which cancels $64\%$ of signature magnitude, and using a random forest on the
-resulting dense features. Correcting both reaches $0.752$ $[0.728, 0.776]$.
-Because a chance-level result invites a strong conclusion, we tested the
-explanation on an independent release (LINCS Phase~1, 46{,}726 signatures). Only
-half of it survived. Model-class mismatch replicates: logistic regression beats
-random forest by $+0.09$ to $+0.16$ in seven of eight release-by-representation
-combinations. The aggregation effect does not, and reverses sign, with naive
-averaging the \emph{best} representation on Phase~1 and the worst on Phase~2. We
-report the failed half alongside the surviving half. Separately, even a correctly
-specified expression arm stays redundant with structure (blend gain $+0.001$,
-$p{=}0.15$), replicated on SIDER side-effect prediction, while gene-level analysis
-confirms the corrected features encode real pharmacology, recovering HMGCR for
-statins. We close with a self-audit of the defects behind these results, each of
-which produced a publishable-looking but incorrect number.
+A near-chance baseline is usually read as evidence that a modality carries no
+signal. For LINCS L1000 perturbational transcriptomics it is more often evidence
+about the pipeline. Measured the way most pipelines measure it, by averaging
+Level-5 signatures across all doses, cell lines and timepoints and fitting a
+random forest, drug-level expression recovers pharmacological class at AUROC
+$0.548$ on Phase~2 (95\% CI $[0.520, 0.577]$), close enough to chance to read as
+absence. That averaging cancels $64\%$ of signature magnitude, and a tree
+ensemble is poorly matched to dense high-dimensional features. With both
+corrected it reaches $0.752$ $[0.728, 0.776]$, and the corrected features recover known
+pharmacology unsupervised: HMGCR, the direct target of every statin, sits in the
+top ten of $978$ landmark genes at $q \le 0.018$. An independent
+release (LINCS Phase~1, 46{,}726 signatures) separates the general half of this
+diagnosis from the dataset-specific half. Model-class mismatch costs roughly
+$0.14$ AUROC in seven of eight release-by-representation combinations and is a
+standing hazard. The aggregation effect reverses sign, with naive averaging the
+\emph{best} representation on Phase~1 and the worst on Phase~2, so aggregation
+has to be settled per dataset. All of this came out of a negative control that
+failed decisively. A CLIP-style structure-expression aligner lost to a plain
+random forest on ECFP4 fingerprints in every class ($p \le 0.027$), as did four
+stronger structural baselines and, at $0.751$ against $0.917$, the published
+alignment objective this recipe comes from ($p \le 0.0039$). Correctly
+specified, the expression arm is still redundant with structure for these tasks
+($+0.001$, $p{=}0.15$). We close with a self-audit of five defects found in our
+own pipeline, each of which produced a publishable-looking but incorrect number.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -81,39 +78,43 @@ measured transcriptomic response into a shared space with a contrastive
 objective, so that a disease signature can be matched against structurally
 plausible candidates.
 
-This paper reports that the recipe did not work in our hands, and argues that the
-manner of its failure is more informative than the failure itself. Our
-contributions are four negative or cautionary results, each accompanied by a
-diagnosis:
+Our starting point was a negative control for that recipe, which failed
+decisively. What made the failure worth following was that the diagnosis we
+first reached for it was wrong, and that correcting it recovered a modality we
+had been ready to write off. Our contributions:
 
 \begin{enumerate}
-    \item \textbf{The method loses to a trivial baseline.} Across six real
-    pharmacological classes evaluated under a leak-free, drug-disjoint protocol,
-    a random forest on raw ECFP4 fingerprints outperforms every contrastive
-    variant we trained, in every class, and so do four stronger structural
-    baselines. The published alignment objective of
+    \item \textbf{A modality that looks uninformative is recoverable.} Measured
+    the way most pipelines measure it, drug-level L1000 expression sits at
+    $0.548$ on Phase~2 (95\% CI $[0.520, 0.577]$), close enough to chance to
+    read as absence of signal. Two measurement defaults produce that number.
+    With both corrected it reaches $0.752$ $[0.728, 0.776]$ (Section~\ref{sec:f2}),
+    and the corrected features recover the canonical statin target without
+    supervision (Section~\ref{sec:bio}).
+
+    \item \textbf{One half of the diagnosis is a general hazard, the other is
+    dataset-specific.} On LINCS Phase~1 the model-class effect holds at $+0.09$
+    to $+0.16$ across representations and costs roughly $0.14$ AUROC, while the
+    aggregation effect reverses sign. Practitioners should treat model class as
+    a standing hazard and determine aggregation on their own data
+    (Section~\ref{sec:repl}).
+
+    \item \textbf{The negative control is decisive and holds against the
+    published objective.} Across six real pharmacological classes under a
+    leak-free, drug-disjoint protocol, a random forest on raw ECFP4 fingerprints
+    outperforms every contrastive variant we trained, in every class, and so do
+    four stronger structural baselines. The published alignment objective of
     Finlayson et al.~\cite{finlayson2021}, reimplemented and tuned under the
     same protocol, loses in all six classes as well
     (Sections~\ref{sec:f1} to~\ref{sec:published}).
 
-    \item \textbf{Two ordinary choices produced a chance-level result.} Naive
-    signature aggregation and an ill-suited downstream model class together left
-    the expression modality at $0.548$ on Phase~2 (95\% CI $[0.520, 0.577]$).
-    Correcting both reached $0.752$ $[0.728, 0.776]$ (Section~\ref{sec:f2}).
-
-    \item \textbf{Only half of that explanation replicates.} On LINCS Phase~1
-    the model-class effect holds at $+0.09$ to $+0.16$ across representations,
-    while the aggregation effect reverses sign. We report the failed half
-    (Section~\ref{sec:repl}).
-
-    \item \textbf{Correctly specified, the second modality is redundant.} With
-    the expression arm properly constructed, blending still fails to improve on
-    structure alone ($+0.001$, $p{=}0.15$), replicated on a second task family
-    (Section~\ref{sec:f3}). Gene-level analysis confirms the corrected features
-    nonetheless encode real pharmacology (Section~\ref{sec:bio}).
+    \item \textbf{Correctly specified, the second modality is still redundant
+    here.} With the expression arm properly constructed, blending does not
+    improve on structure alone ($+0.001$, $p{=}0.15$), and the same holds on a
+    second task family (Section~\ref{sec:f3}).
 \end{enumerate}
 
-We additionally report a self-audit (Section~\ref{sec:audit}) of four defects we
+We additionally report a self-audit (Section~\ref{sec:audit}) of five defects we
 found in our own pipeline over the course of this work. We include it because
 each defect produced a result that looked publishable, and because the
 sequence illustrates a failure mode that is difficult to catch from the outside:
@@ -141,14 +142,6 @@ differential-expression strength. What we add is the observation that these
 known properties interact with an ordinary preprocessing default to produce a
 chance-level result that looks like a modality limit.
 
-\textbf{Reported baselines near chance.} Published raw-signature baselines in
-this area sometimes sit at or near $0.50$. We do not claim that any specific
-published number arises from the mechanism we describe, and our own interval
-does not contain the values we cite. The point is narrower: a chance-level
-signature baseline is consistent with a preprocessing artifact, and the
-possibility is worth excluding before such a number is interpreted as evidence
-about the assay.
-
 \ifanon
 \textbf{Prior work in this line.} Deep learning has been applied to epilepsy drug
 repurposing on LINCS data~\cite{kondadadi2025ctdn}, using a temporal-diffusion
@@ -166,12 +159,6 @@ we identify here as problematic, and we have not re-evaluated it under the
 corrected pipeline. We single it out because the failure mode described here
 applies to our own earlier results as much as to the method we set out to test.
 \fi
-
-\textbf{Negative results in machine learning for biology.} The genre this paper
-belongs to has an established rationale. Publication of successful pipelines alone
-biases the field's estimate of what works, and diagnosing why an approach failed
-is often more transferable than the approach itself would have been. Our
-self-audit in Section~\ref{sec:audit} is written in that spirit.
 
 \section{Setup}
 \label{sec:setup}
@@ -204,7 +191,7 @@ sharing a drug identity are treated as positives. Each pretraining regime is run
 with 3 independent seeds. Significance is Wilcoxon signed-rank, paired by
 subsampling seed after averaging over pretraining seeds.
 
-\section{Failure 1: the method loses to a trivial baseline}
+\section{The negative control: structure alone beats cross-modal alignment}
 \label{sec:f1}
 
 Table~\ref{tab:main} reports downstream class recovery. A random forest on raw
@@ -327,7 +314,7 @@ points spread uniformly on a sphere; drug-level mean expression is not, and the
 analytic form collapses the sampler onto each anchor's two nearest compounds, so
 we substituted the empirical density of the observed distances.
 
-\section{Failure 2: two ordinary choices that zero out a modality}
+\section{Two measurement defaults suppress the expression modality}
 \label{sec:f2}
 
 Our first reading of Table~\ref{tab:main} was that L1000 expression simply carries
@@ -417,8 +404,9 @@ $31.3$ to $11.3$: opposing responses across conditions cancel.}
 \end{figure}
 
 \textbf{This is probably not unique to us.} Our naive-conjunction estimate
-($0.548$) and published raw-signature baselines (e.g.\ TS-978 $=0.507$,
-TS-12328 $=0.485$ in MoAble's MoA benchmark) both sit close to chance. We stress
+($0.548$) and published raw-signature baselines (median AUROC $0.507$ for
+TS-978 and $0.485$ for TS-12328 in the MoAble MoA benchmark~\cite{jang2021})
+both sit close to chance. We stress
 that this is agreement in range only. Our interval does not contain $0.507$, so
 we claim just that a near-chance published baseline is consistent with this class
 of artifact. Whether any particular published baseline arises from it is beyond
@@ -544,7 +532,7 @@ data, because the answer differs between releases of the same assay.
 This section exists because the replication contradicted us. We had written the
 conjunction claim before running it.
 
-\section{Failure 3: correctly specified, the modality is redundant}
+\section{A correctly specified expression arm stays redundant with structure}
 \label{sec:f3}
 
 The obvious question is whether a properly specified expression arm becomes
@@ -668,35 +656,31 @@ result is a live counterexample worth resolving.
 
 \section{Conclusion}
 
-We tried a standard recipe on real data and it lost to a random forest on
-fingerprints in all six disease areas, and to four stronger structural baselines
-besides. The interesting part was the diagnosis, and the way it survived only
-partially.
+A near-chance baseline is the point at which most people stop measuring a
+modality. On LINCS L1000 that is usually the wrong moment to stop. Drug-level
+expression sits at $0.548$ under two ordinary measurement defaults, averaging
+Level-5 signatures over every experimental condition and reusing the structure
+arm's model class, and at $0.752$ once both are corrected. The corrected
+features are not an artifact of tuning a preprocessing choice against a metric:
+they put HMGCR, the direct molecular target of every statin, in the top ten of
+$978$ landmark genes at $q \le 0.018$, alongside HMGCS1 and RHOA.
 
-Our first explanation, that LINCS expression carries no drug-level signal, was
-wrong. Two preprocessing choices produced that number: averaging Level-5
-signatures over all experimental conditions, and reusing the structure arm's
-model class for the expression arm. On Phase~2 the pair placed the modality at
-$0.548$, close enough to chance to read as absence, and correcting both reached
-$0.748$.
+Half of that diagnosis generalises. On an independent LINCS release, model-class
+mismatch costs roughly $0.14$ AUROC in seven of eight release-by-representation
+combinations, so a tree ensemble on dense expression features is a standing
+hazard. The aggregation effect reverses: the restriction that helped on Phase~2
+hurts on Phase~1, where naive averaging is the best representation we tried. We
+report the half that failed because we had already written the conjunction claim
+when the replication contradicted it. The transferable instruction is to treat
+model class as a hazard everywhere and to settle aggregation on the data at
+hand.
 
-We then tested that account on an independent release, and half of it failed.
-Model-class mismatch costs roughly $0.13$ AUROC in both releases. The
-aggregation effect reverses: the restriction that helped on Phase~2 hurts on
-Phase~1, where naive averaging is the best representation we tried. We report
-this because we had already written the conjunction claim when the replication
-contradicted it, and because a paper about pipeline defects that declined to
-test its own explanation would be self-refuting.
-
-What survives is narrower and, we think, more useful. Model-class mismatch is a
-robust hazard. Aggregation is consequential but release-dependent. A near-chance
-expression baseline is a hypothesis about the pipeline before it is a conclusion
-about the assay, and which part of the pipeline is responsible has to be
-determined on the data at hand rather than assumed from another study.
-
-Correctly specified, the modality remains redundant with structure for these
-tasks, so the negative conclusion about cross-modal utility stands even though
-the explanation we first gave for it does not.
+The negative control that started this stands. A CLIP-style aligner lost to a
+random forest on fingerprints in all six disease areas, four stronger structural
+baselines beat it as well, and so does the published objective this recipe comes
+from once reimplemented and tuned under the same protocol. Correctly specified,
+the expression arm remains redundant with structure for these tasks. Recovery
+and complementarity are different problems, and this paper solves only the first.
 
 \section*{Limitations}
 
@@ -740,6 +724,7 @@ our dataset from them are included.
 \bibitem{sirci2017} F. Sirci, F. Napolitano, S. Pisonero-Vaquero, D. Carrella, D. L. Medina, and D. di Bernardo, ``Comparing structural and transcriptional drug networks reveals signatures of drug activity and toxicity in transcriptional responses,'' \emph{npj Systems Biology and Applications}, vol. 3, p. 23, 2017.
 \bibitem{lin2021} N. Lim and P. Pavlidis, ``Evaluation of connectivity map shows limited reproducibility in drug repositioning,'' \emph{Scientific Reports}, vol. 11, no. 1, p. 17624, 2021.
 \bibitem{kondadadi2025ctdn} R. Kondadadi, ``Causal temporal diffusion networks for drug repurposing in epilepsy,'' \emph{Briefings in Bioinformatics}, vol. 26, suppl. 1, p. i42, Dec. 2025, conference abstract, doi: 10.1093/bib/bbaf631.074.
+\bibitem{jang2021} G. Jang, S. Park, S. Lee, S. Kim, S. Park, and J. Kang, ``Predicting mechanism of action of novel compounds using compound structure and transcriptomic signature coembedding,'' \emph{Bioinformatics}, vol. 37, suppl. 1, pp. i376--i382, Jul. 2021, doi: 10.1093/bioinformatics/btab275.
 \bibitem{wang2016} Z. Wang, N. R. Clark, and A. Ma'ayan, ``Drug-induced adverse events prediction with the LINCS L1000 data,'' \emph{Bioinformatics}, vol. 32, no. 15, pp. 2338--2345, 2016.
 \end{thebibliography}
 

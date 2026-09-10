@@ -1,8 +1,8 @@
-# Model-Class Mismatch and Aggregation Artifacts
+# Recovering a Transcriptomic Modality That Looks Uninformative
 
-Code, result logs and figure scripts for the MAI-DRS 2026 paper *Model-Class
-Mismatch and Aggregation Artifacts in Structure-Transcriptome Drug Repurposing*
-(workshop at IEEE BIBM 2026).
+Code, result logs and figure scripts for the MAI-DRS 2026 paper *Recovering a
+Transcriptomic Modality That Looks Uninformative: Model-Class Mismatch and
+Aggregation in LINCS Drug Repurposing* (workshop at IEEE BIBM 2026).
 
 The paper is a negative result with a self-audit, so this repository is
 organised around making each quoted number traceable rather than around a
@@ -109,7 +109,8 @@ design. A signature is *strongly active* at 50 or more landmark genes with
 ## Citation
 
 ```
-R. Kondadadi and D. McCreary, "Model-Class Mismatch and Aggregation Artifacts in
-Structure-Transcriptome Drug Repurposing," in Proc. IEEE BIBM Workshop on Multi-Modal Artificial
+R. Kondadadi and D. McCreary, "Recovering a Transcriptomic Modality That Looks
+Uninformative: Model-Class Mismatch and Aggregation in LINCS Drug Repurposing,"
+in Proc. IEEE BIBM Workshop on Multi-Modal Artificial
 Intelligence in Drug Discovery, Repurposing, and Safety (MAI-DRS), 2026.
 ```
