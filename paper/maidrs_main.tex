@@ -295,7 +295,8 @@ an unremarkable default. It is also destructive: the median norm of a drug's
 averaged signature is $11.3$ versus $31.3$ for its individual signatures, i.e.\
 averaging cancels $64\%$ of signature magnitude. The data are not the problem:
 $99.9\%$ of compounds have at least one strongly active signature ($\ge 50$
-landmark genes at $|z| > 2$), and only $7.8\%$ of signatures are weak.
+landmark genes at $|z| > 2$), and only $7.8\%$ of individual signatures are weak
+in the sense of carrying fewer than $25$ such genes.
 At 30 subsampling repeats, aggregation alone moves expression-only AUROC from
 $0.548$ to $0.640$ with the model held fixed at RF (Table~\ref{tab:corners});
 the 6-repeat grid in Figure~\ref{fig:grid} puts the same shift at $0.525$ to
@@ -632,6 +633,16 @@ some prior work were unavailable, so the replication uses unfiltered signatures.
 \textbf{Small positive classes.} Class sizes of 5--16 drugs bound per-class
 power, mitigated by repeated subsampling and by effects consistent across
 classes. Membership comes from name matching, not measured efficacy.
+
+\section*{Code and data availability}
+
+All code, result logs and figure-regeneration scripts are at
+\url{https://github.com/edanmn/maidrs-2026-modality}. Each figure script prints
+the values this paper quotes from it, so every number can be checked against a
+fresh run rather than read off the figure, and the repository maps each table
+and claim to the log it came from. The raw LINCS releases (GSE70138, GSE92742)
+and SIDER 4.1 are public but too large to redistribute; the scripts that build
+our dataset from them are included.
 
 \begin{thebibliography}{9}
 \bibitem{finlayson2021} S. G. Finlayson, M. B. A. McDermott, A. V. Pickering, S. L. Lipnick, and I. S. Kohane, ``Cross-modal representation alignment of molecular structure and perturbation-induced transcriptional profiles,'' in \emph{Pacific Symposium on Biocomputing}, vol. 26, 2021, pp. 273--284.
