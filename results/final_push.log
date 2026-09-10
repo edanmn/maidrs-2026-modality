@@ -1,6 +1,6 @@
 === A: DRUG CLASS, responsive drugs, gold_percell, 40 repeats ===
-n=200 struct=0.8476 expr=0.6312 blend=0.8670 gain=+0.0194 p=0.3664
+n=200 struct=0.8476 expr=0.7209 blend=0.8688 gain=+0.0212 p=0.0167
 
 === B: SIDER, gold_percell, responsive drugs only (n=364) ===
-n_se=50 struct=0.5876 expr=0.5436 blend=0.5886
-gain=+0.0011 p=0.9924 wins=27/50
+n_se=50 struct=0.6056 expr=0.5563 blend=0.5932
+gain=-0.0124 p=0.0268 wins=17/50

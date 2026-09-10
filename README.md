@@ -1,9 +1,8 @@
-# How We Nearly Wrote Off a Modality
+# Model-Class Mismatch and Aggregation Artifacts
 
-Code, result logs and figure scripts for the MAI-DRS 2026 paper *How We Nearly
-Wrote Off a Modality: Model-Class Mismatch, Aggregation, and What Survived
-Replication in Structure-Transcriptome Drug Repurposing* (workshop at IEEE BIBM
-2026).
+Code, result logs and figure scripts for the MAI-DRS 2026 paper *Model-Class
+Mismatch and Aggregation Artifacts in Structure-Transcriptome Drug Repurposing*
+(workshop at IEEE BIBM 2026).
 
 The paper is a negative result with a self-audit, so this repository is
 organised around making each quoted number traceable rather than around a
@@ -33,6 +32,7 @@ python run_expression_grid.py      # Figure 1, Table III corners, Table IV Phase
 python run_blend.py                # Section VII, cross-modal blend
 python run_sider.py                # Section VII, SIDER replication
 python run_bio_interpretation.py   # Section V-A, gene-level analysis
+python run_qc_variants.py          # QC-filtered representation sweeps
 python phase1_replication.py       # extracts the Phase 1 landmark matrix
 python run_phase1_analysis.py      # Section VI, Table IV Phase 1 columns
 ```
@@ -77,6 +77,7 @@ come from SIDER 4.1 (`meddra_all_se.tsv.gz`).
 | Variance decomposition, 73.3% and 11.5% | `results/grid.log`, recomputed by `make_fig1_conjunction.py` |
 | Blend result, +0.0013 at p = 0.15 | `results/blend_proper.log` |
 | SIDER nested blend | `results/sider_nested.log` |
+| Responsive-subset blend caveat | `results/final_push.log`, `results/qc_final.log` |
 | Gene-level statin and SSRI findings | `results/bio_interpretation.json` |
 | Phase 1 extraction and HMGCR control | `results/p1_analyses.log`, `results/p1extract.log` |
 | Signature cancellation statistics | `make_fig3_cancellation.py`, `figures/fig3_cancellation_stats.json` |
@@ -108,8 +109,7 @@ design. A signature is *strongly active* at 50 or more landmark genes with
 ## Citation
 
 ```
-R. Kondadadi, "How We Nearly Wrote Off a Modality: Model-Class Mismatch,
-Aggregation, and What Survived Replication in Structure-Transcriptome Drug
-Repurposing," in Proc. IEEE BIBM Workshop on Multi-Modal Artificial
+R. Kondadadi, "Model-Class Mismatch and Aggregation Artifacts in
+Structure-Transcriptome Drug Repurposing," in Proc. IEEE BIBM Workshop on Multi-Modal Artificial
 Intelligence in Drug Discovery, Repurposing, and Safety (MAI-DRS), 2026.
 ```

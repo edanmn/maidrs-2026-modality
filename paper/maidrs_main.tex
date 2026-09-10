@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{How We Nearly Wrote Off a Modality: Model-Class Mismatch, Aggregation, and What Survived Replication in Structure--Transcriptome Drug Repurposing}
+\title{Model-Class Mismatch and Aggregation Artifacts in Structure--Transcriptome Drug Repurposing}
 
 \ifanon
 \author{\IEEEauthorblockN{Anonymous Author(s)}
@@ -422,9 +422,8 @@ work has separately established that a majority of CMap compounds show weak
 transcriptional response and that class recovery for those compounds is close to
 random~\cite{sirci2017}, and that L1000 reproducibility depends strongly on
 differential-expression strength~\cite{lin2021}. Our result is best read as a
-concrete demonstration of how a reported chance-level baseline can be
-manufactured by preprocessing and model-selection defaults rather than by an
-absence of signal.
+worked example of how preprocessing and model-selection defaults can manufacture
+a chance-level baseline where signal exists.
 
 \textbf{A hypothesis we tested and rejected.} Given the above, we hypothesised
 that preprocessing choice would dominate model choice in explaining outcome
@@ -564,7 +563,7 @@ a gain of $+0.0013$ ($p = 0.15$, $27/120$ wins). Expression carries real signal
 task. Per-class gains range from $-0.004$ to $+0.011$ and are individually
 non-significant.
 
-\textbf{Replication on a second task family.} Pharmacological class is arguably
+\textbf{Replication on a second task family.} Pharmacological class is largely
 structure-determined by construction, so we repeated the analysis on SIDER
 side-effect prediction, where prior work reports expression outperforming
 structure~\cite{wang2016}. With nested (leak-free) blend-weight selection over
@@ -579,6 +578,19 @@ for exemplar signatures, a deficit of $-0.09$ ($p = 1.4\times10^{-63}$, with
 expression ahead on only $87$ of the $546$ endpoints). We did not replicate the published result on either release. We flag
 it as an open discrepancy rather than a refutation, since we lack the Phase~1 QC
 filtering and the GO-enrichment transform used in that work.
+
+\textbf{One cell where blending does help.} Restricting to transcriptionally
+responsive compounds (strongest signature at $\mathrm{TAS} \ge 0.3$, following
+Sirci et al.~\cite{sirci2017}) and using gold-signature per-cell-line features,
+the fixed blend gains $+0.021$ over structure on drug-class recovery
+($p = 0.017$, 40 repeats). We report it because it cuts against our conclusion,
+and we do not read much into it. The same cell with a random-forest expression
+arm gains $+0.026$ at $p = 0.60$. It is one of a dozen blend comparisons we ran
+across representations and compound subsets, so it does not survive correction
+for that count. And on SIDER the same restriction with the same features makes
+blending worse ($-0.012$, $p = 0.027$). We take the blend gain to be
+representation- and task-dependent scatter around zero rather than a recoverable
+complementarity.
 
 We also caution that an earlier version of this analysis appeared to show a
 $+0.008$ gain; that gain was entirely an artifact of selecting the blend weight
