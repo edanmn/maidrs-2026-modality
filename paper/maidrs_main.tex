@@ -81,7 +81,7 @@ diagnosis we first gave for the failure was wrong, and correcting it recovered a
 modality we had been ready to write off. Our contributions:
 
 \begin{enumerate}
-    \item \textbf{A modality that looks uninformative is recoverable.} Measured
+    \item A modality that looks uninformative is recoverable. Measured
     the way most pipelines measure it, drug-level L1000 expression sits at
     $0.548$ on Phase~2 (95\% CI $[0.520, 0.577]$), close enough to chance to
     read as absence of signal. Two measurement defaults produce that number.
@@ -89,15 +89,15 @@ modality we had been ready to write off. Our contributions:
     and the corrected features recover the canonical statin target without
     supervision (Section~\ref{sec:bio}).
 
-    \item \textbf{One half of the diagnosis is a general hazard, the other is
-    dataset-specific.} On LINCS Phase~1 the model-class effect holds at $+0.09$
+    \item One half of the diagnosis is a general hazard, the other is
+    dataset-specific. On LINCS Phase~1 the model-class effect holds at $+0.09$
     to $+0.16$ across representations and costs roughly $0.14$ AUROC, while the
     aggregation effect reverses sign. Practitioners should choose the model class
     per modality and determine aggregation on their own data
     (Section~\ref{sec:repl}).
 
-    \item \textbf{The negative control holds against the published
-    objective.} Across six real pharmacological classes under a
+    \item The negative control holds against the published
+    objective. Across six real pharmacological classes under a
     leak-free, drug-disjoint protocol, a random forest on raw ECFP4 fingerprints
     outperforms every contrastive variant we trained, in every class, and so do
     four stronger structural baselines. The published alignment objective of
@@ -105,8 +105,8 @@ modality we had been ready to write off. Our contributions:
     same protocol, loses in all six classes as well
     (Sections~\ref{sec:f1} to~\ref{sec:published}).
 
-    \item \textbf{Correctly specified, the second modality is still redundant
-    here.} With the expression arm properly constructed, blending does not
+    \item Correctly specified, the second modality is still redundant
+    here. With the expression arm properly constructed, blending does not
     improve on structure alone ($+0.001$, $p{=}0.15$), and the same holds on a
     second task family (Section~\ref{sec:f3}).
 \end{enumerate}
@@ -118,16 +118,16 @@ confirmations while all consuming the same defective input.
 
 \section{Related work}
 
-\textbf{Contrastive alignment of molecules and transcriptomes.} Pairing chemical
-structure with perturbational expression under a joint contrastive objective was
-introduced by Finlayson et al.~\cite{finlayson2021}, who also flagged generalisation across cell
+Finlayson et al.~\cite{finlayson2021} introduced the pairing of chemical
+structure with perturbational expression under a joint contrastive objective, and
+also flagged generalisation across cell
 lines and compounds as unresolved. The CLIP formulation~\cite{radford2021} that most such work adapts, and the alignment and uniformity
 diagnostics of Wang and Isola~\cite{wang2020}, are the two pieces of contrastive machinery we
 use directly. Subsequent work has applied contrastive objectives to
 drug-disease association tables and biomedical knowledge graphs, generally
 reporting favourable within-benchmark results.
 
-\textbf{Known problems with L1000 signal.} Our diagnosis rests on findings that
+Our diagnosis rests on findings that
 are individually established. Sirci et al.~\cite{sirci2017} report that a majority of CMap
 compounds produce weak transcriptional responses and that class recovery for
 those compounds is close to random, recommending that high-variability compounds
@@ -138,7 +138,7 @@ known properties interact with an ordinary preprocessing default to produce a
 chance-level result that looks like a modality limit.
 
 \ifanon
-\textbf{Prior work in this line.} Deep learning has been applied to epilepsy drug
+Deep learning has been applied to epilepsy drug
 repurposing on LINCS data~\cite{kondadadi2025ctdn}, using a temporal-diffusion
 architecture and reporting favourable results against published baselines. That
 work used the naive drug-level signature aggregation we identify here as
@@ -146,7 +146,7 @@ problematic, and it has not been re-evaluated under the corrected pipeline. The
 failure mode described here applies to that work as much as to the method we set
 out to test.
 \else
-\textbf{Our own prior work in this line.} One of us previously applied deep
+One of us previously applied deep
 learning to epilepsy drug repurposing on LINCS data~\cite{kondadadi2025ctdn},
 using a temporal-diffusion architecture and reporting favourable results against
 published baselines. That work used the naive drug-level signature aggregation
@@ -158,7 +158,7 @@ as much as to the method we set out to test.
 \section{Setup}
 \label{sec:setup}
 
-\textbf{Data.} LINCS L1000 Phase~2 (GSE70138) Level-5 signatures over $978$
+We use LINCS L1000 Phase~2 (GSE70138) Level-5 signatures over $978$
 landmark genes, restricted to compound perturbations: $107{,}404$ signatures over
 $1{,}768$ compounds and $30$ cell lines. Canonical SMILES were resolved via
 PubChem for $1{,}725/1{,}768$ compounds ($97.6\%$); all yielded valid $2048$-bit
@@ -167,7 +167,7 @@ LINCS signature QC metrics (\texttt{tas}, \texttt{distil\_cc\_q75},
 \texttt{distil\_ss}, \texttt{pct\_self\_rank\_q25}) were obtained from the GEO
 supplementary \texttt{sig\_metrics} file.
 
-\textbf{Labels.} Six pharmacologically standard, mutually exclusive drug classes
+Labels are six pharmacologically standard, mutually exclusive drug classes
 matched by compound name: antiepileptics (16 drugs), statins (5), SSRIs (6),
 NSAIDs (8), beta-blockers (6), antipsychotics (7). Positive counts are small,
 which is why we evaluate by repeated subsampling rather than a single split. A
@@ -176,7 +176,7 @@ second task family, SIDER side-effect prediction, is used for replication
 side-effect endpoints with at least $25$ positive and $25$ negative drugs each.
 The analyses in Section~\ref{sec:f3} use subsets of $40$ to $60$ of these.
 
-\textbf{Protocol.} Repeated Monte-Carlo drug-disjoint subsampling: for each
+Evaluation uses repeated Monte-Carlo drug-disjoint subsampling: for each
 of $10$ seeds we hold out $\max(2, 35\%)$ of a class's positive drugs plus $150$
 random negative drugs; no drug's signatures ever appear in both the fitting and
 evaluation pools. Contrastive models use a CLIP-style symmetric InfoNCE objective
@@ -313,7 +313,7 @@ Our first reading of Table~\ref{tab:main} was that L1000 expression carries no
 drug-level signal, since expression-only averages $0.507$ over the six classes,
 indistinguishable from the random control. That reading was wrong.
 
-\textbf{Aggregation.} To obtain one feature vector per drug we had averaged all of
+To obtain one feature vector per drug we had averaged all of
 a compound's Level-5 signatures across doses, cell lines, and timepoints, a
 common default that cancels signal. The median norm of a drug's averaged
 signature is $11.3$ against $31.3$ for its individual signatures, so averaging
@@ -326,7 +326,7 @@ $0.548$ to $0.635$ with the model held fixed at RF (Table~\ref{tab:corners});
 the 6-repeat grid in Figure~\ref{fig:grid} puts the same shift at $0.525$ to
 $0.619$. Figure~\ref{fig:cancel} shows the cancellation directly.
 
-\textbf{Model class.} Independently, we had used a random forest for the
+Independently, we had used a random forest for the
 expression arm, mirroring the structure arm. Random forests are poorly matched to
 dense, high-dimensional, low-sample expression features. Logistic regression on
 the same naively aggregated features reaches $0.663$ $[0.637, 0.689]$
@@ -334,7 +334,7 @@ where the random forest reaches $0.548$ $[0.520, 0.577]$. Structure, by contrast
 is model-robust (RF $0.9171$ vs.\ LogReg $0.9169$), so the choice penalises only
 one arm.
 
-\textbf{The conjunction.} Either choice alone leaves substantial signal; both
+Either choice alone leaves substantial signal; both
 together leave the modality barely distinguishable from chance. The best cell
 (high-dose aggregation $+$ logistic regression) reaches $0.752$ $[0.728, 0.776]$.
 Table~\ref{tab:corners} collects the four corner estimates, each at 30
@@ -394,7 +394,7 @@ $31.3$ to $11.3$: opposing responses across conditions cancel.}
 \label{fig:cancel}
 \end{figure}
 
-\textbf{This is probably not unique to us.} Our naive-conjunction estimate
+This is probably not unique to us. Our naive-conjunction estimate
 ($0.548$) and published raw-signature baselines (median AUROC $0.507$ for
 TS-978 and $0.485$ for TS-12328 in the MoAble MoA benchmark~\cite{jang2021})
 both sit close to chance. This is
@@ -409,7 +409,7 @@ differential-expression strength~\cite{lin2021}. Our result is a
 worked example of how preprocessing and model-selection defaults can manufacture
 a chance-level baseline where signal exists.
 
-\textbf{A hypothesis we tested and rejected.} Given the above, we hypothesised
+Given the above, we hypothesised
 that preprocessing choice would dominate model choice in explaining outcome
 variance. A variance decomposition over the $7 \times 5$ grid rejects this:
 between-model variance accounts for $73.3\%$ of total variance versus $11.5\%$
@@ -489,14 +489,14 @@ Gold / exemplar signature mean & 0.568 & 0.727 & 0.577 & 0.671 \\
 \end{tabular}
 \end{table}
 
-\textbf{The model-class effect replicates.} Logistic regression beats random
+The model-class effect replicates. Logistic regression beats random
 forest by $+0.09$ to $+0.16$ in seven of the eight release-by-representation
 combinations of Table~\ref{tab:repl}. The single exception is the
 strongest-signature representation on Phase~1 ($-0.04$), which is also the
 weakest representation overall. Across both releases, a tree ensemble on dense
 high-dimensional expression features costs roughly $0.14$ AUROC.
 
-\textbf{The aggregation effect does not replicate, and reverses.} On Phase~2,
+The aggregation effect does not replicate, and reverses. On Phase~2,
 restricting to high-dose 24-hour signatures improved matters by $+0.09$ under
 both model classes. On Phase~1 the same restriction hurts, by $-0.04$
 under both, and naive averaging over all conditions is the best representation
@@ -510,7 +510,7 @@ dose and timepoint coverage per compound, so its naive average may pool more
 genuinely replicate measurements and fewer sub-threshold ones. That is a
 hypothesis and we have not tested it.
 
-\textbf{Implication.} Model-class mismatch is a hazard for this modality in both
+Model-class mismatch is a hazard for this modality in both
 releases. Aggregation matters but depends on the release, and our chance-level
 Phase~2 number required both effects. A practitioner should not take from this
 ``always restrict to high dose''; which part of the pipeline is responsible has
@@ -540,7 +540,7 @@ a gain of $+0.0013$ ($p = 0.15$, $27/120$ wins). Expression carries real signal
 task. Per-class gains range from $-0.004$ to $+0.011$ and are individually
 non-significant.
 
-\textbf{Replication on a second task family.} Pharmacological class is largely
+Pharmacological class is largely
 structure-determined by construction, so we repeated the analysis on SIDER
 side-effect prediction, where prior work reports expression outperforming
 structure~\cite{wang2016}. With nested (leak-free) blend-weight selection over
@@ -557,10 +557,9 @@ published result on either release, but we lack the Phase~1 QC filtering and the
 GO-enrichment transform used in that work, so we treat this as an open
 discrepancy.
 
-\textbf{One cell where blending does help.} Restricting to transcriptionally
-responsive compounds (strongest signature at $\mathrm{TAS} \ge 0.3$, following
-Sirci et al.~\cite{sirci2017}) and using gold-signature per-cell-line features,
-the fixed blend gains $+0.021$ over structure on drug-class recovery
+On transcriptionally responsive compounds (strongest signature at
+$\mathrm{TAS} \ge 0.3$, following Sirci et al.~\cite{sirci2017}) with
+gold-signature per-cell-line features, the fixed blend does gain $+0.021$ over structure on drug-class recovery
 ($p = 0.017$, 40 repeats). This cuts against our conclusion, and we do not
 read much into it. The same cell with a random-forest expression
 arm gains $+0.026$ at $p = 0.60$. It is one of a dozen blend comparisons we ran
@@ -582,23 +581,23 @@ yielded a plausible, presentable result, and the interaction between two of them
 is the main methodological warning in this paper.
 
 \begin{enumerate}
-    \item \textbf{Zero-vector embeddings.} In the class-holdout regime, drug-level
+    \item Zero-vector embeddings. In the class-holdout regime, drug-level
     expression embeddings were aggregated only over signatures visible to that
     regime, so held-out drugs received all-zero embeddings, which are trivially
     separable.
     This produced apparent AUROC of $1.000 \pm 0.000$. Caught only because the
     value was implausibly perfect.
 
-    \item \textbf{Single-seed regime comparison.} The full and class-holdout
+    \item Single-seed regime comparison. The full and class-holdout
     regimes were initially compared at one pretraining seed each, confounding the
     regime effect with seed variance. Fixed by running three seeds per regime.
 
-    \item \textbf{Naive signature aggregation} (Section~\ref{sec:f2}).
+    \item Naive signature aggregation (Section~\ref{sec:f2}).
 
-    \item \textbf{Mismatched model class for the expression arm}
+    \item Mismatched model class for the expression arm
     (Section~\ref{sec:f2}).
 
-    \item \textbf{Zero-filled representations}, found while preparing the code
+    \item Zero-filled representations, found while preparing the code
     release for this paper. Every aggregation that selects a subset of a
     compound's signatures left an all-zero vector behind for compounds with no
     signature meeting its criterion: 49 of $1{,}725$ for the high-dose subset,
@@ -665,7 +664,6 @@ it complementary is a problem this paper leaves open.
 
 \section*{Limitations}
 
-\textbf{One published objective, not every published system.}
 Section~\ref{sec:published} tests the alignment objective of
 Finlayson et al.~\cite{finlayson2021} under our protocol, and it loses in all
 six classes. That closes the obvious version of this gap, but not all of it. We
@@ -676,7 +674,7 @@ which consume different inputs and would need a different evaluation. Our claim
 is that two contrastive alignment objectives, one of them the published one,
 lose to a random forest on fingerprints under this protocol.
 
-\textbf{One assay.} Results come from LINCS L1000 Phase~2 with replication on
+Results come from LINCS L1000 Phase~2 with replication on
 Phase~1 (Section~\ref{sec:repl}), so they generalise across releases but not
 beyond the assay. The SIDER replication changes the labels while keeping the same
 compounds and measurements, varying the task rather than the data source. Whether
@@ -684,7 +682,7 @@ the conjunction reproduces on CMap-independent expression data, or under a
 different structural representation, is untested. The Phase~1 QC fields used by
 some prior work were unavailable, so the replication uses unfiltered signatures.
 
-\textbf{Small positive classes.} Class sizes of 5--16 drugs bound per-class
+Class sizes of 5--16 drugs bound per-class
 power, mitigated by repeated subsampling and by effects consistent across
 classes. Membership comes from name matching, not measured efficacy.
 
